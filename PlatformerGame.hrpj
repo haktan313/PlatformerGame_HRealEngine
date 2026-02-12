@@ -1,0 +1,6 @@
+Project:
+  Name: PlatformerGame
+  StartScene: 832115492279930486
+  AssetDirectory: assets
+  AssetRegistryPath: AssetRegistry.yaml
+  ScriptModulePath: Scripts/Binaries/PlatformerGame.dll
