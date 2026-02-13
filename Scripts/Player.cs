@@ -3,12 +3,27 @@ using System;
 
 namespace HRealEngine
 {
+    enum BlockState
+    {
+        Standing, 
+        HorizontalX,
+        HorizontalZ
+    }
     public class Player : Entity
     {
+        BlockState currentState = BlockState.Standing;
+        bool bIsMoving = false;
+        
         private Rigidbody3DComponent rb3D;
         private TransformComponent transform;
         
         public float speed = 5.0f;
+        
+        public string KeyOne = "KeyOne";
+        private ulong currentKeyOneID = 0;
+        public string firstKeyPlatformTag = "FirstKeyPlatform";
+        public Vector3 firstKeyPlatformPosition = new Vector3(0, 5, 0);
+        
         void OnCreate()
         {
             Console.WriteLine("Player created with entity ID: " + EntityID);
@@ -35,15 +50,39 @@ namespace HRealEngine
 
             velocity *= speed;
             rb3D.ApplyLinearImpulse(velocity);
+            
+            if (currentKeyOneID != 0 && Input.IsKeyDown(KeyCodes.HRE_KEY_E))
+            {
+                FindEntityByName(KeyOne)?.Destroy(FindEntityByName(KeyOne)?.EntityID ?? 0);
+                Console.WriteLine("Player used the key to open the door!");
+                Entity platform = FindEntityByName(firstKeyPlatformTag);
+                if (platform != null)
+                {
+                    platform.Translation = firstKeyPlatformPosition;
+                    Console.WriteLine("First key platform moved to: " + firstKeyPlatformPosition);
+                    currentKeyOneID = 0;
+                }
+            }
         }
+        
         void OnCollisionEnter2D(ulong otherID)
         {
             Console.WriteLine("Player collided with entity ID: " + otherID);
+            if (otherID == FindEntityByName(KeyOne)?.EntityID)
+            {
+                Console.WriteLine("Player collected the key!");
+                currentKeyOneID = otherID;
+            }
         }
 
         void OnCollisionExit2D(ulong otherID)
         {
             Console.WriteLine("Player stopped colliding with entity ID: " + otherID);
+            if (otherID == currentKeyOneID)
+            {
+                Console.WriteLine("Player lost the key!");
+                currentKeyOneID = 0;
+            }
         }
     }
 }
