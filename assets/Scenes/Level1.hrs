@@ -1,0 +1,48 @@
+Scene: Untitled
+Entities:
+  - Entity: 8455550625152092416
+    TagComponent:
+      Tag: Camera
+    TransformComponent:
+      Position: [0, 1.317105, 3.8564339]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    CameraComponent:
+      PrimaryCamera: true
+      FixedAspectRatio: false
+      Camera:
+        ProjectionType: 0
+        PerspectiveFOV: 0.7853982
+        PerspectiveNear: 0.01
+        PerspectiveFar: 1000
+        OrthographicSize: 10
+        OrthographicNear: -1
+        OrthographicFar: 1
+  - Entity: 13540993326959311074
+    TagComponent:
+      Tag: Empty Entity
+    TransformComponent:
+      Position: [0, 0, 0]
+      Rotation: [0, 0, 0]
+      Scale: [3.0492876, 1, 4.786483]
+    MeshRendererComponent:
+      MeshHandle: 0
+      Color: [1, 1, 1, 1]
+      TextureHandle: 0
+      TilingFactor: 1
+      MaterialHandleOverrides:
+        []
+  - Entity: 11168784199704287409
+    TagComponent:
+      Tag: lightttt
+    TransformComponent:
+      Position: [0, 9.804975, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    LightComponent:
+      Type: Point
+      Color: [1, 1, 1]
+      Direction: [0, -1, 0]
+      Intensity: 6.2
+      Radius: 12.4
+      CastShadows: true

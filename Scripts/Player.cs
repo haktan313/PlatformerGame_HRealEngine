@@ -3,17 +3,8 @@ using System;
 
 namespace HRealEngine
 {
-    enum BlockState
-    {
-        Standing, 
-        HorizontalX,
-        HorizontalZ
-    }
     public class Player : Entity
     {
-        BlockState currentState = BlockState.Standing;
-        bool bIsMoving = false;
-        
         private Rigidbody3DComponent rb3D;
         private TransformComponent transform;
         
@@ -23,6 +14,10 @@ namespace HRealEngine
         private ulong currentKeyOneID = 0;
         public string firstKeyPlatformTag = "FirstKeyPlatform";
         public Vector3 firstKeyPlatformPosition = new Vector3(0, 5, 0);
+        
+        private float sceneLoadDelay = 1.0f;
+        private float elapsedTime = 0.0f;
+        private bool sceneLoaded = false;
         
         void OnCreate()
         {
@@ -36,6 +31,18 @@ namespace HRealEngine
         }
         void OnUpdate(float ts)
         {
+            if (!sceneLoaded)
+            {
+                elapsedTime += ts;
+                if (elapsedTime >= sceneLoadDelay)
+                {
+                    Console.WriteLine("Scene loaded after delay of " + sceneLoadDelay + " seconds");
+                    sceneLoaded = true;
+                    OpenScene("Scenes/Level1.hrs");
+                    return;
+                }
+            }
+            
             Vector3 velocity = Vector3.Zero;
 
             if (Input.IsKeyDown(KeyCodes.HRE_KEY_W))
