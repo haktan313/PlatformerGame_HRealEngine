@@ -1,0 +1,75 @@
+Scene: Untitled
+Entities:
+  - Entity: 11486846554375955908
+    TagComponent:
+      Tag: MenuText
+    TransformComponent:
+      Position: [-1.5860863, 2.8126526, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    TextComponent:
+      TextString: "Menu\n"
+      Color: [1, 1, 1, 1]
+      Kerning: 0
+      LineSpacing: 0
+  - Entity: 4424480087275035002
+    TagComponent:
+      Tag: Camera
+    TransformComponent:
+      Position: [0, 0, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    CameraComponent:
+      PrimaryCamera: true
+      FixedAspectRatio: false
+      Camera:
+        ProjectionType: 1
+        PerspectiveFOV: 0.7853982
+        PerspectiveNear: 0.01
+        PerspectiveFar: 1000
+        OrthographicSize: 10
+        OrthographicNear: -1
+        OrthographicFar: 1
+  - Entity: 14673502223922364624
+    TagComponent:
+      Tag: MenuEntity
+    TransformComponent:
+      Position: [0, 0, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    ScriptComponent:
+      ClassName: HRealEngine.MenuController
+      ScriptFields:
+        - Name: ExitButtonTag
+          Type: String
+          Data: ExitButton
+        - Name: PlayButtonTag
+          Type: String
+          Data: PlayButton
+        - Name: scenePathToLoad
+          Type: String
+          Data: DefaultScene.hrs
+  - Entity: 17422494348406944523
+    TagComponent:
+      Tag: PlayButton
+    TransformComponent:
+      Position: [-0.8154333, 1.6416855, 0]
+      Rotation: [0, 0, 0]
+      Scale: [3.2490296, 0.5037678, 1]
+    SpriteRendererComponent:
+      Color: [1, 1, 1, 1]
+      TextureHandle: 0
+      TilingFactor: 1
+      OrderInLayer: 0
+  - Entity: 15365266024619529492
+    TagComponent:
+      Tag: ExitButton
+    TransformComponent:
+      Position: [-0.8011904, 0.67247015, 0]
+      Rotation: [0, 0, 0]
+      Scale: [3.25, 0.5, 1]
+    SpriteRendererComponent:
+      Color: [1, 1, 1, 1]
+      TextureHandle: 0
+      TilingFactor: 1
+      OrderInLayer: 0

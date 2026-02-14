@@ -15,6 +15,7 @@ namespace HRealEngine
         public string firstKeyPlatformTag = "FirstKeyPlatform";
         public Vector3 firstKeyPlatformPosition = new Vector3(0, 5, 0);
         
+        public string scenePathToLoad = "Scenes/Level1.hrs";
         private float sceneLoadDelay = 1.0f;
         private float elapsedTime = 0.0f;
         private bool sceneLoaded = false;
@@ -31,17 +32,22 @@ namespace HRealEngine
         }
         void OnUpdate(float ts)
         {
-            if (!sceneLoaded)
+            /*if (!sceneLoaded)
             {
                 elapsedTime += ts;
                 if (elapsedTime >= sceneLoadDelay)
                 {
                     Console.WriteLine("Scene loaded after delay of " + sceneLoadDelay + " seconds");
                     sceneLoaded = true;
-                    OpenScene("Scenes/Level1.hrs");
+                    OpenScene(scenePathToLoad);
                     return;
                 }
-            }
+            }*/
+            /*Vector2 mousePos;
+            Input.GetMousePosition(out mousePos);*/
+            Vector2 outMousePos;
+            Input.GetMousePosition(out outMousePos);
+            Console.WriteLine("Mouse Position: " + outMousePos);
             
             Vector3 velocity = Vector3.Zero;
 
