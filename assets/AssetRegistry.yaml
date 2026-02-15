@@ -2,12 +2,15 @@ AssetRegistry:
   - Handle: 832115492279930486
     FilePath: DefaultScene.hrs
     Type: AssetType::Scene
-  - Handle: 12318147520427006693
-    FilePath: Scenes/Level1.hrs
-    Type: AssetType::Scene
   - Handle: 771012059488381640
     FilePath: Scenes/Menu.hrs
+    Type: AssetType::Scene
+  - Handle: 12318147520427006693
+    FilePath: Scenes/Level1.hrs
     Type: AssetType::Scene
   - Handle: 14203005140024592889
     FilePath: Scenes/EndMenu.hrs
     Type: AssetType::Scene
+  - Handle: 9469411670466427437
+    FilePath: testTree.btree
+    Type: AssetType::BehaviorTree
