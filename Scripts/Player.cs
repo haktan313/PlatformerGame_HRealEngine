@@ -18,7 +18,7 @@ namespace HRealEngine
         public string timerTextTag = "TimerText";
         
         public string scenePathToLoad = "Scenes/Level1.hrs";
-        private float sceneLoadDelay = 1.0f;
+        private float sceneLoadDelay = 4.0f;
         private float elapsedTime = 0.0f;
         private bool sceneLoaded = false;
         
@@ -27,6 +27,8 @@ namespace HRealEngine
             Console.WriteLine("Player created with entity ID: " + EntityID);
             rb3D = GetComponent<Rigidbody3DComponent>();
             transform = GetComponent<TransformComponent>();
+            float elapsedTimeFromMenu = GameModeData.GetFloatData("ElapsedTime");
+            Console.WriteLine("Elapsed time from menu: " + elapsedTimeFromMenu);
         }
         void OnDestroy()
         {
@@ -34,22 +36,20 @@ namespace HRealEngine
         }
         void OnUpdate(float ts)
         {
-            /*if (!sceneLoaded)
+            if (!sceneLoaded)
             {
                 elapsedTime += ts;
                 if (elapsedTime >= sceneLoadDelay)
                 {
                     Console.WriteLine("Scene loaded after delay of " + sceneLoadDelay + " seconds");
+                    GameModeData.SetFloatData("GameElapsedTime", elapsedTime);
                     sceneLoaded = true;
                     OpenScene(scenePathToLoad);
                     return;
                 }
-            }*/
+            }
             /*Vector2 mousePos;
             Input.GetMousePosition(out mousePos);*/
-            Vector2 outMousePos;
-            Input.GetMousePosition(out outMousePos);
-            Console.WriteLine("Mouse Position: " + outMousePos);
             
             Vector3 velocity = Vector3.Zero;
 

@@ -24,9 +24,9 @@ namespace HRealEngine
         
         void OnUpdate(float ts)
         {
+            elapsedTime += ts;
             if (!bDoOnce)
             {
-                elapsedTime += ts;
                 if (elapsedTime >= delayTime)
                 {
                     bDoOnce = true;
@@ -36,6 +36,7 @@ namespace HRealEngine
             }
             Input.GetMousePosition(out Vector2 mousePos);
             Entity hoveredEntity = GetHoveredEntity();
+            GameModeData.SetFloatData("ElapsedTime", elapsedTime);
             if (hoveredEntity != null)
             {
                 if(FindEntityByName(PlayButtonTag) != null && hoveredEntity.EntityID == FindEntityByName(PlayButtonTag).EntityID)
