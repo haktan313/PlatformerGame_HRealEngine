@@ -40,7 +40,7 @@ namespace HRealEngine
             {
                 if(FindEntityByName(PlayButtonTag) != null && hoveredEntity.EntityID == FindEntityByName(PlayButtonTag).EntityID)
                 {
-                    if (Input.IsKeyDown(KeyCodes.HRE_KEY_ENTER))
+                    if (Input.IsMousePressed(MouseButton.Left))
                     {
                         Console.WriteLine("Enter key pressed on Play button, loading scene: " + scenePathToLoad);
                         OpenScene(scenePathToLoad);
@@ -48,7 +48,7 @@ namespace HRealEngine
                 }
                 else if(FindEntityByName(ExitButtonTag) != null && hoveredEntity.EntityID == FindEntityByName(ExitButtonTag).EntityID)
                 {
-                    if (Input.IsKeyDown(KeyCodes.HRE_KEY_ENTER))
+                    if (Input.IsMousePressed(MouseButton.Left))
                     {
                         Console.WriteLine("Enter key pressed on Exit button, exiting application.");
                         Environment.Exit(0);
