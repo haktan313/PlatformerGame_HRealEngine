@@ -15,6 +15,8 @@ namespace HRealEngine
         public string firstKeyPlatformTag = "FirstKeyPlatform";
         public Vector3 firstKeyPlatformPosition = new Vector3(0, 5, 0);
         
+        public string timerTextTag = "TimerText";
+        
         public string scenePathToLoad = "Scenes/Level1.hrs";
         private float sceneLoadDelay = 1.0f;
         private float elapsedTime = 0.0f;
@@ -75,6 +77,15 @@ namespace HRealEngine
                     Console.WriteLine("First key platform moved to: " + firstKeyPlatformPosition);
                     currentKeyOneID = 0;
                 }
+            }
+            
+            elapsedTime += ts;
+            Entity timerTextEntity = FindEntityByName(timerTextTag);
+            if (timerTextEntity != null)
+            {
+                TextComponent textComponent = timerTextEntity.GetComponent<TextComponent>();
+                if (textComponent != null)
+                    textComponent.Text = elapsedTime.ToString("F2") + "s";
             }
         }
         

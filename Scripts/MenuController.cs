@@ -9,6 +9,9 @@ namespace HRealEngine
         public string ExitButtonTag = "ExitButton";
         public string scenePathToLoad = "Scenes/Level1.hrs";
         
+        private float delayTime = 0.01f;
+        private float elapsedTime = 0.0f;
+        private bool bDoOnce = false;
         void OnCreate()
         {
             Console.WriteLine("MenuController created with entity ID: " + EntityID);
@@ -21,15 +24,22 @@ namespace HRealEngine
         
         void OnUpdate(float ts)
         {
+            if (!bDoOnce)
+            {
+                elapsedTime += ts;
+                if (elapsedTime >= delayTime)
+                {
+                    bDoOnce = true;
+                    Input.SetCursorMode(MouseCurserMode.InGame);
+                    return;
+                }
+            }
             Input.GetMousePosition(out Vector2 mousePos);
-            Console.WriteLine("Mouse Position: " + mousePos);
             Entity hoveredEntity = GetHoveredEntity();
             if (hoveredEntity != null)
             {
-                Console.WriteLine("Hovered Entity ID: " + hoveredEntity.EntityID);
                 if(FindEntityByName(PlayButtonTag) != null && hoveredEntity.EntityID == FindEntityByName(PlayButtonTag).EntityID)
                 {
-                    Console.WriteLine("Play button hovered!");
                     if (Input.IsKeyDown(KeyCodes.HRE_KEY_ENTER))
                     {
                         Console.WriteLine("Enter key pressed on Play button, loading scene: " + scenePathToLoad);
@@ -38,7 +48,6 @@ namespace HRealEngine
                 }
                 else if(FindEntityByName(ExitButtonTag) != null && hoveredEntity.EntityID == FindEntityByName(ExitButtonTag).EntityID)
                 {
-                    Console.WriteLine("Exit button hovered!");
                     if (Input.IsKeyDown(KeyCodes.HRE_KEY_ENTER))
                     {
                         Console.WriteLine("Enter key pressed on Exit button, exiting application.");
