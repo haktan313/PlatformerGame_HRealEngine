@@ -1,25 +1,5 @@
 Scene: Untitled
 Entities:
-  - Entity: 9501580868238826283
-    TagComponent:
-      Tag: enemy
-    TransformComponent:
-      Position: [-2.9013422, 0.93880343, -10.429087]
-      Rotation: [0, 0, 0]
-      Scale: [1, 1, 1]
-    MeshRendererComponent:
-      MeshHandle: 0
-      Color: [1, 1, 1, 1]
-      TextureHandle: 0
-      TilingFactor: 1
-      MaterialHandleOverrides:
-        []
-    ScriptComponent:
-      ClassName: HRealEngine.Enemy
-      ScriptFields:
-        - Name: attackDuration
-          Type: Float
-          Data: 3
   - Entity: 1647274443718812251
     TagComponent:
       Tag: Ground
@@ -58,11 +38,11 @@ Entities:
       Offset: [0, 0.2, 0]
       Size: [0.35, 0.2, 0.35]
       IsTrigger: false
-  - Entity: 12450195786122325663
+  - Entity: 9649888230121534545
     TagComponent:
       Tag: Ground
     TransformComponent:
-      Position: [-2.1999998, 0, -4]
+      Position: [-0.7999997, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [2, 1, 2]
     MeshRendererComponent:
@@ -184,12 +164,18 @@ Entities:
         - Name: KeyOne
           Type: String
           Data: Key
+        - Name: bulletObjectTag
+          Type: String
+          Data: Bullet
         - Name: firstKeyPlatformPosition
           Type: Vector3
           Data: [1, 0.5, -1.95]
         - Name: firstKeyPlatformTag
           Type: String
           Data: platform31
+        - Name: sceneLoadDelay
+          Type: Float
+          Data: 99999
         - Name: scenePathToLoad
           Type: String
           Data: Scenes/EndMenu.hrs
@@ -263,49 +249,43 @@ Entities:
       Offset: [0, 0, 0]
       Size: [4, 0.5, 4]
       IsTrigger: true
-  - Entity: 5264946743331276812
+  - Entity: 9501580868238826283
     TagComponent:
-      Tag: box
+      Tag: enemy
     TransformComponent:
-      Position: [-1.9035969, 2.6455069, -6.911891]
+      Position: [-2.9023788, 0.93880343, -5.358857]
       Rotation: [0, 0, 0]
-      Scale: [0.6, 0.6, 0.6]
+      Scale: [1, 1, 1]
     MeshRendererComponent:
       MeshHandle: 0
-      Color: [0.71432734, 0.22064054, 1, 1]
-      TextureHandle: 0
-      TilingFactor: 1
-      MaterialHandleOverrides:
-        []
-    Rigidbody3DComponent:
-      BodyType: Dynamic
-      FixedRotation: false
-      Friction: 0.05
-      Restitution: 0
-      Convex Radius: 0.02
-    BoxCollider3DComponent:
-      Offset: [0, 0, 0]
-      Size: [0.5, 0.5, 0.5]
-      IsTrigger: false
-  - Entity: 14917205843162963629
-    TagComponent:
-      Tag: Ground
-    TransformComponent:
-      Position: [-0.7999998, 0, -4]
-      Rotation: [0, 0, 0]
-      Scale: [2, 1, 2]
-    MeshRendererComponent:
-      MeshHandle: 14213266826641648093
       Color: [1, 1, 1, 1]
       TextureHandle: 0
       TilingFactor: 1
       MaterialHandleOverrides:
-        - 984707302067005557
-        - 0
-    BoxCollider3DComponent:
-      Offset: [0, 0.2, 0]
-      Size: [0.35, 0.2, 0.35]
-      IsTrigger: false
+        []
+    BehaviorTreeComponent:
+      BehaviorTreeHandle: 7840225679639347890
+    ScriptComponent:
+      ClassName: HRealEngine.Enemy
+      ScriptFields:
+        - Name: attackDuration
+          Type: Float
+          Data: 3
+        - Name: bulletMeshPath
+          Type: String
+          Data: Pwenguen.hmesh
+  - Entity: 17530512616142160156
+    TagComponent:
+      Tag: time text
+    TransformComponent:
+      Position: [0, 0.6046488, -9.982897]
+      Rotation: [-0.0038909637, 0, 0]
+      Scale: [1, 1, 1]
+    TextComponent:
+      TextString: "Time:"
+      Color: [0.19559021, 0.3633806, 0.8327402, 1]
+      Kerning: 0
+      LineSpacing: 0
   - Entity: 13313654878804982259
     TagComponent:
       Tag: platform31
@@ -330,15 +310,22 @@ Entities:
       Offset: [0, 0, 0]
       Size: [0.5, 0.5, 0.5]
       IsTrigger: false
-  - Entity: 17530512616142160156
+  - Entity: 7662082398754068667
     TagComponent:
-      Tag: time text
+      Tag: Ground
     TransformComponent:
-      Position: [0, 0.6046488, -9.982897]
-      Rotation: [-0.0038909637, 0, 0]
-      Scale: [1, 1, 1]
-    TextComponent:
-      TextString: "Time:"
-      Color: [0.19559021, 0.3633806, 0.8327402, 1]
-      Kerning: 0
-      LineSpacing: 0
+      Position: [-2.1999998, 0, -4]
+      Rotation: [0, 0, 0]
+      Scale: [2, 1, 2]
+    MeshRendererComponent:
+      MeshHandle: 14213266826641648093
+      Color: [1, 1, 1, 1]
+      TextureHandle: 0
+      TilingFactor: 1
+      MaterialHandleOverrides:
+        - 984707302067005557
+        - 0
+    BoxCollider3DComponent:
+      Offset: [0, 0.2, 0]
+      Size: [0.35, 0.2, 0.35]
+      IsTrigger: false

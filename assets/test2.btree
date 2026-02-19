@@ -1,19 +1,14 @@
 BehaviorTree:
   Blackboard:
-    ClassName: EnemyAIBlackboard
+    ClassName: PlatformerAIBlackboard
     Floats:
-      DistanceToPlayer: 310
-      Stamina: 50
-      Health: 100
+      AttackRange: 1
     Ints:
-      AttackPower: 10
-      AmmoCount: 30
+      {}
     Bools:
-      IsPlayerInRange: false
-      IsAttacking: false
-      CanAttack: true
+      {}
     Strings:
-      CurrentState: Idle
+      PlayerTag: Player
   EditorData:
     Nodes:
       - ID: 1
@@ -30,70 +25,48 @@ BehaviorTree:
         Params:
           {}
       - ID: 3
+        Name: AttackAction
+        Type: 4
+        RuntimeUID: 4
+        Class: class HRealEngine::ManagedBTAction
+        PosX: 4
+        PosY: 330
+        Decorators:
+          - Name: CooldownDecorator
+            ClassName: CooldownDecorator
+            Params:
+              CooldownTime: 2
+              ResetOnFail: false
+        Conditions:
+          - Name: IsInTheRange
+            ClassName: IsInTheRange
+            Params:
+              Priority: Both
+              PlayerTagKey: Player
+              MinRange: 2.5
+        Params:
+          Damage: 10
+          bulletMeshPath: Meshes/BulletMesh.hmesh
+      - ID: 5
         Name: Selector
         Type: 3
         RuntimeUID: 2
         Class: class SelectorNode
-        PosX: -12
-        PosY: 110
+        PosX: 64
+        PosY: 195
         Decorators:
           []
         Conditions:
           []
         Params:
           {}
-      - ID: 9
-        Name: AttackAction
-        Type: 4
-        RuntimeUID: 6
-        Class: class HRealEngine::ManagedBTAction
-        PosX: 132
-        PosY: 218
-        Decorators:
-          - Name: CooldownDecorator
-            ClassName: CooldownDecorator
-            Params:
-              CooldownTime: 5
-              ResetOnFail: false
-        Conditions:
-          - Name: CanAttack
-            ClassName: CanAttack
-            Params:
-              Priority: Both
-              CanAttackKey: CanAttack
-        Params:
-          Damage: 10
-          StaminaKey: Stamina
-      - ID: 11
-        Name: MoveToPlayerAction
-        Type: 4
-        RuntimeUID: 3
-        Class: class HRealEngine::ManagedBTAction
-        PosX: -156
-        PosY: 250
-        Decorators:
-          []
-        Conditions:
-          - Name: IsInTheRange
-            ClassName: IsInTheRange
-            Params:
-              Priority: Both
-              DistanceKey: DistanceToPlayer
-              MinRange: 250
-        Params:
-          StopDistance: 31
-          MoveSpeed: 5
-          DistanceKey: DistanceToPlayer
     Links:
-      - ID: 16
+      - ID: 8
         StartNodeID: 1
+        EndNodeID: 5
+      - ID: 9
+        StartNodeID: 5
         EndNodeID: 3
-      - ID: 21
-        StartNodeID: 3
-        EndNodeID: 11
-      - ID: 22
-        StartNodeID: 3
-        EndNodeID: 9
   RuntimeData:
     Name: Root
     Type: Root
@@ -103,21 +76,6 @@ BehaviorTree:
         Type: Composite
         Class: class SelectorNode
         Children:
-          - Name: MoveToPlayerAction
-            Type: Action
-            Class: class HRealEngine::ManagedBTAction
-            Conditions:
-              - Name: IsInTheRange
-                Type: Condition
-                Class: class HRealEngine::ManagedBTCondition
-                Priority: Both
-                Params:
-                  DistanceKey: DistanceToPlayer
-                  MinRange: 250
-            Params:
-              StopDistance: 31
-              MoveSpeed: 5
-              DistanceKey: DistanceToPlayer
           - Name: CooldownDecorator
             Type: Decorator
             Class: class HRealEngine::ManagedBTDecorator
@@ -126,15 +84,16 @@ BehaviorTree:
               Type: Action
               Class: class HRealEngine::ManagedBTAction
               Conditions:
-                - Name: CanAttack
+                - Name: IsInTheRange
                   Type: Condition
                   Class: class HRealEngine::ManagedBTCondition
                   Priority: Both
                   Params:
-                    CanAttackKey: CanAttack
+                    PlayerTagKey: Player
+                    MinRange: 1
               Params:
                 Damage: 10
-                StaminaKey: Stamina
+                bulletMeshPath: Meshes/BulletMesh.hmesh
             Params:
               CooldownTime: 5
               ResetOnFail: false

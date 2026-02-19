@@ -1,4 +1,6 @@
 // Scripts/BT/CooldownDecorator.cs
+
+using System;
 using HRealEngine;
 using HRealEngine.BehaviorTree;
 
@@ -11,10 +13,10 @@ public class CooldownParams : BTDecoratorParams
     public bool ResetOnFail = false;
 }
 
-public class CooldownDecorator : BTDecorator
-{
+public class CooldownDecorator : BTDecorator {
     private CooldownParams cooldownParams;
-    private float lastExecutionTime = -999f;
+    private float elapsedTime = 0f;
+    private bool onCooldown = false;
 
     public CooldownDecorator()
     {
@@ -26,14 +28,29 @@ public class CooldownDecorator : BTDecorator
     {
         cooldownParams = parameters as CooldownParams;
     }
+    
+    public override void SetParameters(BTDecoratorParams param)
+    {
+        base.SetParameters(param);
+        cooldownParams = param as CooldownParams;
+    }
 
     public override bool CanExecute()
     {
-        // TODO: You'll need to expose Time.GetTime() via InternalCalls
-        float currentTime = 0f; // Replace with actual time
-        float elapsed = currentTime - lastExecutionTime;
-        
-        return elapsed >= cooldownParams.CooldownTime;
+        if (!onCooldown) return true;
+
+        elapsedTime += GetDeltaTime();
+
+        if (elapsedTime >= cooldownParams.CooldownTime)
+        {
+            onCooldown = false;
+            elapsedTime = 0f;
+            Console.WriteLine("CooldownDecorator: Cooldown finished, can execute.");
+            return true;
+        }
+
+        Console.WriteLine($"CooldownDecorator: On cooldown. Time remaining: {cooldownParams.CooldownTime - elapsedTime:F2}s");
+        return false;
     }
 
     public override void OnFinishedResult(ref NodeStatus status)
@@ -41,7 +58,9 @@ public class CooldownDecorator : BTDecorator
         if (status == NodeStatus.Success || 
             (status == NodeStatus.Failure && !cooldownParams.ResetOnFail))
         {
-            lastExecutionTime = 0f; // Replace with actual time
+            onCooldown = true;
+            elapsedTime = 0f;
+            Console.WriteLine($"CooldownDecorator: Cooldown started for {cooldownParams.CooldownTime}s");
         }
     }
 }

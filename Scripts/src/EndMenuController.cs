@@ -55,6 +55,7 @@ namespace HRealEngine
                     if (Input.IsMousePressed(MouseButton.Left))
                     {
                         Console.WriteLine("Enter key pressed on Restart button, loading scene: " + scenePathToLoad);
+                        GameModeData.SetFloatData("GameElapsedTime", 0.0f);
                         OpenScene(scenePathToLoad);
                     }
                 }

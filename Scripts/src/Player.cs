@@ -16,9 +16,11 @@ namespace HRealEngine
         public Vector3 firstKeyPlatformPosition = new Vector3(0, 5, 0);
         
         public string timerTextTag = "TimerText";
+        public string bulletObjectTag = "BulletPrefab";
+        public string currentSceneTag = "CurrentScene";
         
         public string scenePathToLoad = "Scenes/Level1.hrs";
-        private float sceneLoadDelay = 31.0f;
+        public float sceneLoadDelay = 31.0f;
         private float elapsedTime = 0.0f;
         private bool sceneLoaded = false;
         
@@ -114,6 +116,11 @@ namespace HRealEngine
             {
                 Console.WriteLine("Player collected the key!");
                 currentKeyOneID = otherID;
+            }
+            if (otherID == FindEntityByName(bulletObjectTag)?.EntityID)
+            {
+                Console.WriteLine("Player hit by a bullet! Game Over.");
+                OpenScene(currentSceneTag);
             }
         }
 

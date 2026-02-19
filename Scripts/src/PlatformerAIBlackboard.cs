@@ -5,7 +5,7 @@ public class PlatformerAIBlackboard : BTBlackboard
 {
     public PlatformerAIBlackboard()
     {
-        CreateBool("CanAttack", false);
-        CreateFloat("DistanceToPlayer", 500.0f);
+        CreateString("PlayerTag", "Player");
+        CreateFloat("AttackRange", 1.0f);
     }
 }

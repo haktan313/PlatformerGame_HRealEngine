@@ -1,13 +1,14 @@
 
 using System;
+using HRealEngine;
 using HRealEngine.BehaviorTree;
 
 public class IsInTheRangeParams : BTConditionParams
 {
-    [BTBlackboardKey(BTBlackboardKeyAttribute.KeyType.Float, "Distance Key")]
-    public string DistanceKey = "DistanceToPlayer"; 
+    [BTBlackboardKey(BTBlackboardKeyAttribute.KeyType.String, "PlayerTagKey")]
+    public string PlayerTagKey = "Player"; 
     [BTParameter("Range")]
-    public float MinRange = 250.0f;
+    public float MinRange = 1.0f;
 }
 public class IsInTheRange : BTCondition
 {
@@ -23,14 +24,32 @@ public class IsInTheRange : BTCondition
     {
         rangeParams = parameters as IsInTheRangeParams;
     }
+    
+    public override void SetParameters(BTConditionParams param)
+    {
+        base.SetParameters(param);
+        rangeParams = param as IsInTheRangeParams;
+    }
         
     public override bool CheckCondition()
     {
-        if (string.IsNullOrEmpty(rangeParams.DistanceKey))
+        if (string.IsNullOrEmpty(rangeParams.PlayerTagKey))
             return false;
+        Entity player = FindEntityByName(rangeParams.PlayerTagKey);
+        if (player == null)
+            return false;
+        TransformComponent playerTransform = player.GetComponent<TransformComponent>();
+        TransformComponent ownerTransform = owner.GetComponent<TransformComponent>();
+        if (playerTransform == null || ownerTransform == null)
+            return false;
+        var playerPos = playerTransform.Translation;
+        var ownerPos = ownerTransform.Translation;
+        
+        float dx = playerPos.X - ownerPos.X;
+        float dy = playerPos.Y - ownerPos.Y;
+        float dz = playerPos.Z - ownerPos.Z;
 
-        float distance = blackboard.GetFloat(rangeParams.DistanceKey);
-        Console.WriteLine($"Checking range condition: Distance={distance}, MinRange={rangeParams.MinRange}");
-        return distance >= rangeParams.MinRange;
+        float distance = (float)Math.Sqrt(dx * dx + dy * dy + dz * dz);
+        return distance <= rangeParams.MinRange;
     }
 }
