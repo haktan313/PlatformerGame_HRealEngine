@@ -1,0 +1,14 @@
+Type: StaticMesh
+Source: Imported/Platform/Source/Platform.glb
+Cooked: cache/Platform.hmeshbin
+BoundsMin: [-0.441812, 0.00811104, -0.505152]
+BoundsMax: [0.450423, 0.482862, 0.422578]
+Import:
+  Triangulate: true
+  GenSmoothNormals: true
+  CalcTangents: true
+  FlipUVs: false
+  Scale: 1.0
+MaterialHandles:
+  - 984707302067005557
+  - 0

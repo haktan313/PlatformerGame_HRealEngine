@@ -18,7 +18,7 @@ namespace HRealEngine
         public string timerTextTag = "TimerText";
         
         public string scenePathToLoad = "Scenes/Level1.hrs";
-        private float sceneLoadDelay = 4.0f;
+        private float sceneLoadDelay = 31.0f;
         private float elapsedTime = 0.0f;
         private bool sceneLoaded = false;
         
@@ -51,20 +51,39 @@ namespace HRealEngine
             /*Vector2 mousePos;
             Input.GetMousePosition(out mousePos);*/
             
-            Vector3 velocity = Vector3.Zero;
-
-            if (Input.IsKeyDown(KeyCodes.HRE_KEY_W))
-                velocity.Z = -.02f;
-            else if (Input.IsKeyDown(KeyCodes.HRE_KEY_S))
-                velocity.Z = .02f;
-
+            Vector3 dir = Vector3.Zero;
+            if (Input.IsKeyDown(KeyCodes.HRE_KEY_W)) 
+                dir.Z -= 1.0f;
+            if (Input.IsKeyDown(KeyCodes.HRE_KEY_S)) 
+                dir.Z += 1.0f;
             if (Input.IsKeyDown(KeyCodes.HRE_KEY_A))
-                velocity.X = -.02f;
-            else if (Input.IsKeyDown(KeyCodes.HRE_KEY_D))
-                velocity.X = .02f;
+                dir.X -= 1.0f;
+            if (Input.IsKeyDown(KeyCodes.HRE_KEY_D))
+                dir.X += 1.0f;
+            
+            float lenSq = dir.X * dir.X + dir.Y * dir.Y + dir.Z * dir.Z;
+            if (lenSq > 0.0001f)
+            {
+                float invLen = 1.0f / (float)Math.Sqrt(lenSq);
+                dir.X *= invLen;
+                dir.Y *= invLen;
+                dir.Z *= invLen;
+                
+                Vector3 currentVel = rb3D.GetLinearVelocity();
+                Vector3 desiredVel = new Vector3(dir.X * speed, currentVel.Y, dir.Z * speed);
+                rb3D.SetLinearVelocity(desiredVel);
+                
+                float yawRad = (float)Math.Atan2(dir.X, dir.Z);
+                float yawDeg = yawRad * 57.29578f;
 
-            velocity *= speed;
-            rb3D.ApplyLinearImpulse(velocity);
+                rb3D.SetRotationDegrees(new Vector3(0.0f, yawDeg, 0.0f));
+                //Console.WriteLine($"Player velocity set to: {desiredVel}, rotation set to: {yawDeg} degrees");
+            }
+            else
+            {
+                Vector3 v = rb3D.GetLinearVelocity();
+                rb3D.SetLinearVelocity(new Vector3(0.0f, v.Y, 0.0f));
+            }
             
             if (currentKeyOneID != 0 && Input.IsKeyDown(KeyCodes.HRE_KEY_E))
             {
@@ -91,7 +110,6 @@ namespace HRealEngine
         
         void OnCollisionEnter2D(ulong otherID)
         {
-            Console.WriteLine("Player collided with entity ID: " + otherID);
             if (otherID == FindEntityByName(KeyOne)?.EntityID)
             {
                 Console.WriteLine("Player collected the key!");
@@ -101,7 +119,6 @@ namespace HRealEngine
 
         void OnCollisionExit2D(ulong otherID)
         {
-            Console.WriteLine("Player stopped colliding with entity ID: " + otherID);
             if (otherID == currentKeyOneID)
             {
                 Console.WriteLine("Player lost the key!");
