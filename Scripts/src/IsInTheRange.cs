@@ -8,7 +8,7 @@ public class IsInTheRangeParams : BTConditionParams
     [BTBlackboardKey(BTBlackboardKeyAttribute.KeyType.String, "PlayerTagKey")]
     public string PlayerTagKey = "Player"; 
     [BTParameter("Range")]
-    public float MinRange = 1.0f;
+    public float MinRange = 2.0f;
 }
 public class IsInTheRange : BTCondition
 {
@@ -50,6 +50,10 @@ public class IsInTheRange : BTCondition
         float dz = playerPos.Z - ownerPos.Z;
 
         float distance = (float)Math.Sqrt(dx * dx + dy * dy + dz * dz);
+        if (distance <= rangeParams.MinRange)
+        {
+            Console.WriteLine($"IsInTheRange: Player is within range. Distance: {distance}, Range: {rangeParams.MinRange}");
+        }
         return distance <= rangeParams.MinRange;
     }
 }

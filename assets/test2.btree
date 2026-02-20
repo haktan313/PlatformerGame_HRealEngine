@@ -2,7 +2,7 @@ BehaviorTree:
   Blackboard:
     ClassName: PlatformerAIBlackboard
     Floats:
-      AttackRange: 1
+      {}
     Ints:
       {}
     Bools:
@@ -36,17 +36,15 @@ BehaviorTree:
             ClassName: CooldownDecorator
             Params:
               CooldownTime: 2
-              ResetOnFail: false
         Conditions:
           - Name: IsInTheRange
             ClassName: IsInTheRange
             Params:
               Priority: Both
               PlayerTagKey: Player
-              MinRange: 2.5
+              MinRange: 3
         Params:
-          Damage: 10
-          bulletMeshPath: Meshes/BulletMesh.hmesh
+          bulletMeshPath: Pwenguen.hmesh
       - ID: 5
         Name: Selector
         Type: 3
@@ -90,13 +88,11 @@ BehaviorTree:
                   Priority: Both
                   Params:
                     PlayerTagKey: Player
-                    MinRange: 1
+                    MinRange: 2
               Params:
-                Damage: 10
-                bulletMeshPath: Meshes/BulletMesh.hmesh
+                bulletMeshPath: Pwenguen.hmesh
             Params:
               CooldownTime: 5
-              ResetOnFail: false
         Params:
           {}
     Params:

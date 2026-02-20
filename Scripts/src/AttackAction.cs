@@ -5,8 +5,6 @@ using HRealEngine.BehaviorTree;
 
 public class AttackActionParams : BTActionParams
 {
-    [BTParameter("Damage")]
-    public int Damage = 10;
     [BTParameter("Bullet Mesh Path")]
     public string bulletMeshPath = "Meshes/BulletMesh.hmesh";
 }
@@ -34,7 +32,6 @@ public class AttackAction : BTActionNode
     
     public override void OnStart()
     {
-        Console.WriteLine($"AttackAction started. Damage: {attackParams.Damage}");
         Vector3 spawnPosition = owner.Translation + new Vector3(0, -1, 0); // Spawn below the enemy,
         Vector3 spawnRotation = Vector3.Zero; // No rotation
         Vector3 spawnScale = new Vector3(1, 1, 1); // Default scale

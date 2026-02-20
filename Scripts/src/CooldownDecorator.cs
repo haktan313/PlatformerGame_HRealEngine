@@ -8,9 +8,6 @@ public class CooldownParams : BTDecoratorParams
 {
     [BTParameter("Cooldown Time")]
     public float CooldownTime = 5.0f;
-
-    [BTParameter("Reset On Fail")]
-    public bool ResetOnFail = false;
 }
 
 public class CooldownDecorator : BTDecorator {
@@ -48,15 +45,12 @@ public class CooldownDecorator : BTDecorator {
             Console.WriteLine("CooldownDecorator: Cooldown finished, can execute.");
             return true;
         }
-
-        Console.WriteLine($"CooldownDecorator: On cooldown. Time remaining: {cooldownParams.CooldownTime - elapsedTime:F2}s");
         return false;
     }
 
     public override void OnFinishedResult(ref NodeStatus status)
     {
-        if (status == NodeStatus.Success || 
-            (status == NodeStatus.Failure && !cooldownParams.ResetOnFail))
+        if (status == NodeStatus.Success || status == NodeStatus.Failure)
         {
             onCooldown = true;
             elapsedTime = 0f;

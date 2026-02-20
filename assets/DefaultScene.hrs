@@ -166,7 +166,10 @@ Entities:
           Data: Key
         - Name: bulletObjectTag
           Type: String
-          Data: Bullet
+          Data: BulletPrefab
+        - Name: currentSceneTag
+          Type: String
+          Data: DefaultScene.hrs
         - Name: firstKeyPlatformPosition
           Type: Vector3
           Data: [1, 0.5, -1.95]
@@ -175,7 +178,7 @@ Entities:
           Data: platform31
         - Name: sceneLoadDelay
           Type: Float
-          Data: 99999
+          Data: 10
         - Name: scenePathToLoad
           Type: String
           Data: Scenes/EndMenu.hrs
