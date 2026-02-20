@@ -66,13 +66,9 @@ namespace HRealEngine
             if (Input.IsKeyDown(KeyCodes.HRE_KEY_D))
                 dir.X += 1.0f;
             
-            float lenSq = dir.X * dir.X + dir.Y * dir.Y + dir.Z * dir.Z;
-            if (lenSq > 0.0001f)
+            if (dir.LengthSquared() > 0.0001f)
             {
-                float invLen = 1.0f / (float)Math.Sqrt(lenSq);
-                dir.X *= invLen;
-                dir.Y *= invLen;
-                dir.Z *= invLen;
+                dir = dir.Normalized();
                 
                 Vector3 currentVel = rb3D.GetLinearVelocity();
                 Vector3 desiredVel = new Vector3(dir.X * speed, currentVel.Y, dir.Z * speed);

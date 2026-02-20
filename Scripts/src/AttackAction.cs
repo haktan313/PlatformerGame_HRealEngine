@@ -46,18 +46,11 @@ public class AttackAction : BTActionNode
             return;
         }
         Vector3 toPlayer = player.Translation - owner.Translation;
-        float len = (float)Math.Sqrt(toPlayer.X * toPlayer.X + toPlayer.Y * toPlayer.Y + toPlayer.Z * toPlayer.Z);
-        if (len > 0.0001f)
-        {
-            toPlayer.X /= len;
-            toPlayer.Y /= len;
-            toPlayer.Z /= len;
-        }
-    
+        if (toPlayer.LengthSquared() > 0.0001f)
+            toPlayer = toPlayer.Normalized();
+
         float bulletSpeed = 15.0f;
-        float arcHeight = 3.0f; 
-    
-        Vector3 impulse = new Vector3(toPlayer.X * bulletSpeed, arcHeight, toPlayer.Z * bulletSpeed);
+        Vector3 impulse = toPlayer * bulletSpeed;
         
         Entity bullet = SpawnEntity("BulletPrefab", "Bullet", spawnPosition, spawnRotation, spawnScale);
         Console.WriteLine("Bullet spawned with entity ID: " + bullet.EntityID);
