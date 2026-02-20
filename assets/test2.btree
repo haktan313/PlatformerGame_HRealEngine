@@ -45,6 +45,7 @@ BehaviorTree:
               MinRange: 3
         Params:
           bulletMeshPath: Pwenguen.hmesh
+          PlayerTagKey: Player
       - ID: 5
         Name: Selector
         Type: 3
@@ -88,9 +89,10 @@ BehaviorTree:
                   Priority: Both
                   Params:
                     PlayerTagKey: Player
-                    MinRange: 2
+                    MinRange: 3
               Params:
                 bulletMeshPath: Pwenguen.hmesh
+                PlayerTagKey: Player
             Params:
               CooldownTime: 5
         Params:

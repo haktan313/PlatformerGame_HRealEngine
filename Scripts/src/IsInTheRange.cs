@@ -8,7 +8,7 @@ public class IsInTheRangeParams : BTConditionParams
     [BTBlackboardKey(BTBlackboardKeyAttribute.KeyType.String, "PlayerTagKey")]
     public string PlayerTagKey = "Player"; 
     [BTParameter("Range")]
-    public float MinRange = 2.0f;
+    public float MinRange = 3.0f;
 }
 public class IsInTheRange : BTCondition
 {
@@ -35,6 +35,7 @@ public class IsInTheRange : BTCondition
     {
         if (string.IsNullOrEmpty(rangeParams.PlayerTagKey))
             return false;
+
         Entity player = FindEntityByName(rangeParams.PlayerTagKey);
         if (player == null)
             return false;
@@ -44,7 +45,7 @@ public class IsInTheRange : BTCondition
             return false;
         var playerPos = playerTransform.Translation;
         var ownerPos = ownerTransform.Translation;
-        
+
         float dx = playerPos.X - ownerPos.X;
         float dy = playerPos.Y - ownerPos.Y;
         float dz = playerPos.Z - ownerPos.Z;
