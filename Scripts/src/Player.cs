@@ -9,15 +9,18 @@ namespace HRealEngine
         private TransformComponent transform;
         
         public float speed = 5.0f;
+        public float jumpForce = 10.0f;
+        private bool bIsGrounded = false;
         
         public string KeyOne = "KeyOne";
         private ulong currentKeyOneID = 0;
         public string firstKeyPlatformTag = "FirstKeyPlatform";
         public Vector3 firstKeyPlatformPosition = new Vector3(0, 5, 0);
         
-        public string timerTextTag = "TimerText";
-        public string bulletObjectTag = "BulletPrefab";
-        public string currentSceneTag = "CurrentScene";
+        public string groundTag = "Ground";
+        public string timerTextName = "TimerText";
+        public string bulletObjectName = "BulletPrefab";
+        public string currentSceneName = "CurrentScene";
         
         public string scenePathToLoad = "Scenes/Level1.hrs";
         public float sceneLoadDelay = 31.0f;
@@ -87,6 +90,14 @@ namespace HRealEngine
                 rb3D.SetLinearVelocity(new Vector3(0.0f, v.Y, 0.0f));
             }
             
+            if (Input.IsKeyDown(KeyCodes.HRE_KEY_SPACE) && bIsGrounded)
+            {
+                Console.WriteLine("Player jumps with force: " + jumpForce);
+                Vector3 currentVel = rb3D.GetLinearVelocity();
+                rb3D.SetLinearVelocity(new Vector3(currentVel.X, jumpForce, currentVel.Z));
+                bIsGrounded = false;
+            }
+            
             if (currentKeyOneID != 0 && Input.IsKeyDown(KeyCodes.HRE_KEY_E))
             {
                 FindEntityByName(KeyOne)?.Destroy(FindEntityByName(KeyOne)?.EntityID ?? 0);
@@ -101,7 +112,7 @@ namespace HRealEngine
             }
             
             elapsedTime += ts;
-            Entity timerTextEntity = FindEntityByName(timerTextTag);
+            Entity timerTextEntity = FindEntityByName(timerTextName);
             if (timerTextEntity != null)
             {
                 TextComponent textComponent = timerTextEntity.GetComponent<TextComponent>();
@@ -117,15 +128,25 @@ namespace HRealEngine
                 Console.WriteLine("Player collected the key!");
                 currentKeyOneID = otherID;
             }
-            if (otherID == FindEntityByName(bulletObjectTag)?.EntityID)
+            if (otherID == FindEntityByName(bulletObjectName)?.EntityID)
             {
                 Console.WriteLine("Player hit by a bullet! Game Over.");
-                OpenScene(currentSceneTag);
+                OpenScene(currentSceneName);
+            }
+            if (Entity.FromID(otherID).HasTag(groundTag))
+            {
+                Console.WriteLine("Player landed on the ground.");
+                bIsGrounded = true;
             }
         }
 
         void OnCollisionExit2D(ulong otherID)
         {
+            if (Entity.FromID(otherID).HasTag(groundTag))
+            {
+                Console.WriteLine("Player landed on the ground.");
+                bIsGrounded = true;
+            }
             if (otherID == currentKeyOneID)
             {
                 Console.WriteLine("Player lost the key!");

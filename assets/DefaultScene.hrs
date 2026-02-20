@@ -1,8 +1,11 @@
 Scene: Untitled
 Entities:
   - Entity: 7662082398754068667
+    EntityNameComponent:
+      Name: Ground
     TagComponent:
-      Tag: Ground
+      Tags:
+        - Ground
     TransformComponent:
       Position: [-2.1999998, 0, -4]
       Rotation: [0, 0, 0]
@@ -20,8 +23,8 @@ Entities:
       Size: [0.35, 0.2, 0.35]
       IsTrigger: false
   - Entity: 13313654878804982259
-    TagComponent:
-      Tag: platform31
+    EntityNameComponent:
+      Name: platform31
     TransformComponent:
       Position: [30.08563, 0.5, -1.95]
       Rotation: [0, 0, 0]
@@ -44,8 +47,8 @@ Entities:
       Size: [0.5, 0.5, 0.5]
       IsTrigger: false
   - Entity: 17530512616142160156
-    TagComponent:
-      Tag: time text
+    EntityNameComponent:
+      Name: TimeText
     TransformComponent:
       Position: [0, 0.6046488, -9.982897]
       Rotation: [-0.0038909637, 0, 0]
@@ -56,10 +59,10 @@ Entities:
       Kerning: 0
       LineSpacing: 0
   - Entity: 9501580868238826283
-    TagComponent:
-      Tag: enemy
+    EntityNameComponent:
+      Name: Enemy
     TransformComponent:
-      Position: [-2.9023788, 0.93880343, -5.358857]
+      Position: [1.5047103, 0.93880343, -5.358857]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
     MeshRendererComponent:
@@ -81,8 +84,8 @@ Entities:
           Type: String
           Data: Pwenguen.hmesh
   - Entity: 13539913082356525398
-    TagComponent:
-      Tag: Key
+    EntityNameComponent:
+      Name: Key
     TransformComponent:
       Position: [-5.0951304, 1.7479866, -8.110613]
       Rotation: [0, 0, 0]
@@ -105,8 +108,8 @@ Entities:
       Size: [4, 0.5, 4]
       IsTrigger: true
   - Entity: 5618311015000454132
-    TagComponent:
-      Tag: seconds Text
+    EntityNameComponent:
+      Name: seconds Text
     TransformComponent:
       Position: [1.6282592, 0.4195615, -10]
       Rotation: [0, 0, 0]
@@ -117,8 +120,8 @@ Entities:
       Kerning: 0
       LineSpacing: 0
   - Entity: 3908477400180120185
-    TagComponent:
-      Tag: Camera
+    EntityNameComponent:
+      Name: Camera
     TransformComponent:
       Position: [0, 5.2319345, 6.774338]
       Rotation: [-0.43288785, 0, 0]
@@ -135,8 +138,8 @@ Entities:
         OrthographicNear: -1
         OrthographicFar: 1
   - Entity: 15144214237712919714
-    TagComponent:
-      Tag: Player
+    EntityNameComponent:
+      Name: Player
     TransformComponent:
       Position: [-5.15, 2.1991873, -3.977299]
       Rotation: [0, 0, 0]
@@ -156,10 +159,10 @@ Entities:
         - Name: KeyOne
           Type: String
           Data: Key
-        - Name: bulletObjectTag
+        - Name: bulletObjectName
           Type: String
           Data: BulletPrefab
-        - Name: currentSceneTag
+        - Name: currentSceneName
           Type: String
           Data: DefaultScene.hrs
         - Name: firstKeyPlatformPosition
@@ -168,6 +171,12 @@ Entities:
         - Name: firstKeyPlatformTag
           Type: String
           Data: platform31
+        - Name: groundTag
+          Type: String
+          Data: Ground
+        - Name: jumpForce
+          Type: Float
+          Data: 6
         - Name: sceneLoadDelay
           Type: Float
           Data: 999999
@@ -177,7 +186,7 @@ Entities:
         - Name: speed
           Type: Float
           Data: 2
-        - Name: timerTextTag
+        - Name: timerTextName
           Type: String
           Data: seconds Text
     Rigidbody3DComponent:
@@ -191,8 +200,8 @@ Entities:
       Size: [0.5, 0.75, 0.5]
       IsTrigger: false
   - Entity: 3918105666841215623
-    TagComponent:
-      Tag: Light
+    EntityNameComponent:
+      Name: Light
     TransformComponent:
       Position: [0, 8.828426, 8.677737]
       Rotation: [0, 0, 0]
@@ -205,8 +214,8 @@ Entities:
       Radius: 63.5
       CastShadows: true
   - Entity: 9536004231304333797
-    TagComponent:
-      Tag: button
+    EntityNameComponent:
+      Name: Button
     TransformComponent:
       Position: [0.38576126, 0.49987793, -12.958292]
       Rotation: [0, 0, 0]
@@ -238,8 +247,11 @@ Entities:
       Size: [0.5, 0.5, 0.5]
       IsTrigger: false
   - Entity: 4524835555286631259
+    EntityNameComponent:
+      Name: Ground
     TagComponent:
-      Tag: Ground
+      Tags:
+        - Ground
     TransformComponent:
       Position: [-5, 0, -6.8]
       Rotation: [0, -5.9604645e-08, 0]
@@ -257,12 +269,15 @@ Entities:
       Size: [0.35, 0.2, 0.35]
       IsTrigger: false
   - Entity: 9799995198751945613
+    EntityNameComponent:
+      Name: Ground
     TagComponent:
-      Tag: Ground
+      Tags:
+        - Ground
     TransformComponent:
       Position: [-3.6, 0, -4]
       Rotation: [0, 0, 0]
-      Scale: [2, 1, 2]
+      Scale: [2, 1, 2.0000002]
     MeshRendererComponent:
       MeshHandle: 14213266826641648093
       Color: [1, 1, 1, 1]
@@ -276,8 +291,11 @@ Entities:
       Size: [0.35, 0.2, 0.35]
       IsTrigger: false
   - Entity: 9649888230121534545
+    EntityNameComponent:
+      Name: Ground
     TagComponent:
-      Tag: Ground
+      Tags:
+        - Ground
     TransformComponent:
       Position: [-0.7999997, 0, -4]
       Rotation: [0, 0, 0]
@@ -295,10 +313,13 @@ Entities:
       Size: [0.35, 0.2, 0.35]
       IsTrigger: false
   - Entity: 13363225437329873389
+    EntityNameComponent:
+      Name: Ground
     TagComponent:
-      Tag: Ground
+      Tags:
+        - Ground
     TransformComponent:
-      Position: [-5, 0, -4]
+      Position: [-5, -1.4901161e-08, -4]
       Rotation: [0, 0, 0]
       Scale: [2, 1, 2]
     MeshRendererComponent:
@@ -314,10 +335,13 @@ Entities:
       Size: [0.35, 0.2, 0.35]
       IsTrigger: false
   - Entity: 1647274443718812251
+    EntityNameComponent:
+      Name: Ground
     TagComponent:
-      Tag: Ground
+      Tags:
+        - Ground
     TransformComponent:
-      Position: [-5, 0, -5.4]
+      Position: [-5, -1.4901161e-08, -5.4]
       Rotation: [0, -5.9604645e-08, 0]
       Scale: [1.9999394, 1, 1.9999394]
     MeshRendererComponent:

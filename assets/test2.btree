@@ -25,28 +25,6 @@ BehaviorTree:
         Params:
           {}
       - ID: 3
-        Name: AttackAction
-        Type: 4
-        RuntimeUID: 4
-        Class: class HRealEngine::ManagedBTAction
-        PosX: 4
-        PosY: 330
-        Decorators:
-          - Name: CooldownDecorator
-            ClassName: CooldownDecorator
-            Params:
-              CooldownTime: 2
-        Conditions:
-          - Name: IsInTheRange
-            ClassName: IsInTheRange
-            Params:
-              Priority: Both
-              PlayerTagKey: Player
-              MinRange: 3
-        Params:
-          bulletMeshPath: Pwenguen.hmesh
-          PlayerTagKey: Player
-      - ID: 5
         Name: Selector
         Type: 3
         RuntimeUID: 2
@@ -59,13 +37,35 @@ BehaviorTree:
           []
         Params:
           {}
+      - ID: 6
+        Name: AttackAction
+        Type: 4
+        RuntimeUID: 4
+        Class: class HRealEngine::ManagedBTAction
+        PosX: 68
+        PosY: 314
+        Decorators:
+          - Name: CooldownDecorator
+            ClassName: CooldownDecorator
+            Params:
+              CooldownTime: 2
+        Conditions:
+          - Name: IsInTheRange
+            ClassName: IsInTheRange
+            Params:
+              Priority: Both
+              PlayerTagKey: Player
+              MinRange: 4
+        Params:
+          bulletMeshPath: Pwenguen.hmesh
+          PlayerTagKey: Player
     Links:
       - ID: 8
         StartNodeID: 1
-        EndNodeID: 5
-      - ID: 9
-        StartNodeID: 5
         EndNodeID: 3
+      - ID: 9
+        StartNodeID: 3
+        EndNodeID: 6
   RuntimeData:
     Name: Root
     Type: Root
@@ -89,12 +89,12 @@ BehaviorTree:
                   Priority: Both
                   Params:
                     PlayerTagKey: Player
-                    MinRange: 3
+                    MinRange: 4
               Params:
                 bulletMeshPath: Pwenguen.hmesh
                 PlayerTagKey: Player
             Params:
-              CooldownTime: 5
+              CooldownTime: 2
         Params:
           {}
     Params:

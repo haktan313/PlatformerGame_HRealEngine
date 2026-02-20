@@ -1,74 +1,8 @@
 Scene: Untitled
 Entities:
-  - Entity: 11977096809734169824
-    TagComponent:
-      Tag: ExitButton
-    TransformComponent:
-      Position: [-0.5, -0.5, 0]
-      Rotation: [0, 0, 0]
-      Scale: [5, 0.5, 1]
-    SpriteRendererComponent:
-      Color: [1, 1, 1, 1]
-      TextureHandle: 0
-      TilingFactor: 1
-      OrderInLayer: 0
-  - Entity: 7870862828043472713
-    TagComponent:
-      Tag: EndScore Text
-    TransformComponent:
-      Position: [-2.6374931, 1.5, 0]
-      Rotation: [0, 0, 0]
-      Scale: [1, 1, 1]
-    TextComponent:
-      TextString: "EndScore:"
-      Color: [1, 1, 1, 1]
-      Kerning: 0
-      LineSpacing: 0
-  - Entity: 11237040499721832533
-    TagComponent:
-      Tag: EndScoreAmount Text
-    TransformComponent:
-      Position: [0.8819504, 1.5, 0]
-      Rotation: [0, 0, 0]
-      Scale: [1, 1, 1]
-    TextComponent:
-      TextString: ""
-      Color: [1, 1, 1, 1]
-      Kerning: 0
-      LineSpacing: 0
-  - Entity: 5312928831452460563
-    TagComponent:
-      Tag: Camera
-    TransformComponent:
-      Position: [0, 0, 0]
-      Rotation: [0, 0, 0]
-      Scale: [1, 1, 1]
-    CameraComponent:
-      PrimaryCamera: true
-      FixedAspectRatio: false
-      Camera:
-        ProjectionType: 1
-        PerspectiveFOV: 0.7853982
-        PerspectiveNear: 0.01
-        PerspectiveFar: 1000
-        OrthographicSize: 10
-        OrthographicNear: -1
-        OrthographicFar: 1
-  - Entity: 3565264784052339045
-    TagComponent:
-      Tag: RestartButton
-    TransformComponent:
-      Position: [-0.5, 0.5, 0]
-      Rotation: [0, 0, 0]
-      Scale: [5, 0.5, 1]
-    SpriteRendererComponent:
-      Color: [1, 1, 1, 1]
-      TextureHandle: 0
-      TilingFactor: 1
-      OrderInLayer: 0
   - Entity: 5079882665912832861
-    TagComponent:
-      Tag: EndMenuController
+    EntityNameComponent:
+      Name: EndMenuController
     TransformComponent:
       Position: [0, 0, 0]
       Rotation: [0, 0, 0]
@@ -88,3 +22,69 @@ Entities:
         - Name: timerTextTag
           Type: String
           Data: EndScoreAmount Text
+  - Entity: 3565264784052339045
+    EntityNameComponent:
+      Name: RestartButton
+    TransformComponent:
+      Position: [-0.5, 0.5, 0]
+      Rotation: [0, 0, 0]
+      Scale: [5, 0.5, 1]
+    SpriteRendererComponent:
+      Color: [1, 1, 1, 1]
+      TextureHandle: 0
+      TilingFactor: 1
+      OrderInLayer: 0
+  - Entity: 5312928831452460563
+    EntityNameComponent:
+      Name: Camera
+    TransformComponent:
+      Position: [0, 0, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    CameraComponent:
+      PrimaryCamera: true
+      FixedAspectRatio: false
+      Camera:
+        ProjectionType: 1
+        PerspectiveFOV: 0.7853982
+        PerspectiveNear: 0.01
+        PerspectiveFar: 1000
+        OrthographicSize: 10
+        OrthographicNear: -1
+        OrthographicFar: 1
+  - Entity: 11237040499721832533
+    EntityNameComponent:
+      Name: EndScoreAmount Text
+    TransformComponent:
+      Position: [0.8819504, 1.5, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    TextComponent:
+      TextString: ""
+      Color: [1, 1, 1, 1]
+      Kerning: 0
+      LineSpacing: 0
+  - Entity: 7870862828043472713
+    EntityNameComponent:
+      Name: EndScoreText
+    TransformComponent:
+      Position: [-2.6374931, 1.5, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    TextComponent:
+      TextString: "EndScore:"
+      Color: [1, 1, 1, 1]
+      Kerning: 0
+      LineSpacing: 0
+  - Entity: 11977096809734169824
+    EntityNameComponent:
+      Name: ExitButton
+    TransformComponent:
+      Position: [-0.5, -0.5, 0]
+      Rotation: [0, 0, 0]
+      Scale: [5, 0.5, 1]
+    SpriteRendererComponent:
+      Color: [1, 1, 1, 1]
+      TextureHandle: 0
+      TilingFactor: 1
+      OrderInLayer: 0
