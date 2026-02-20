@@ -1,5 +1,58 @@
 Scene: Untitled
 Entities:
+  - Entity: 3862127157423868043
+    EntityNameComponent:
+      Name: Background
+    TransformComponent:
+      Position: [0.40640044, 0.9639486, -17.573576]
+      Rotation: [0, 0, 0]
+      Scale: [36.053856, 17.624277, 1]
+    MeshRendererComponent:
+      MeshHandle: 0
+      Color: [1, 1, 1, 1]
+      TextureHandle: 2093300204790232219
+      TilingFactor: 1
+      MaterialHandleOverrides:
+        []
+  - Entity: 11473577221401819990
+    EntityNameComponent:
+      Name: MovablePlatformRight
+    TagComponent:
+      Tags:
+        - Ground
+        - MoveablePlatform
+    TransformComponent:
+      Position: [-5.0008545, 0, -1]
+      Rotation: [0, 0, 0]
+      Scale: [2, 1, 2]
+    MeshRendererComponent:
+      MeshHandle: 14213266826641648093
+      Color: [1, 1, 1, 1]
+      TextureHandle: 0
+      TilingFactor: 1
+      MaterialHandleOverrides:
+        - 984707302067005557
+        - 0
+    ScriptComponent:
+      ClassName: HRealEngine.MoveablePlatform
+      ScriptFields:
+        []
+    Rigidbody3DComponent:
+      BodyType: Kinematic
+      LockPositionX: false
+      LockPositionY: false
+      LockPositionZ: false
+      LockRotationX: false
+      LockRotationY: false
+      LockRotationZ: false
+      FixedRotation: false
+      Friction: 0.05
+      Restitution: 0
+      Convex Radius: 0.02
+    BoxCollider3DComponent:
+      Offset: [0, 0.2, 0]
+      Size: [0.35, 0.2, 0.35]
+      IsTrigger: false
   - Entity: 7662082398754068667
     EntityNameComponent:
       Name: Ground
@@ -38,6 +91,12 @@ Entities:
         []
     Rigidbody3DComponent:
       BodyType: Kinematic
+      LockPositionX: false
+      LockPositionY: false
+      LockPositionZ: false
+      LockRotationX: false
+      LockRotationY: false
+      LockRotationZ: false
       FixedRotation: false
       Friction: 0.05
       Restitution: 0
@@ -76,13 +135,6 @@ Entities:
       BehaviorTreeHandle: 7840225679639347890
     ScriptComponent:
       ClassName: HRealEngine.Enemy
-      ScriptFields:
-        - Name: attackDuration
-          Type: Float
-          Data: 3
-        - Name: bulletMeshPath
-          Type: String
-          Data: Pwenguen.hmesh
   - Entity: 13539913082356525398
     EntityNameComponent:
       Name: Key
@@ -99,6 +151,12 @@ Entities:
         []
     Rigidbody3DComponent:
       BodyType: Static
+      LockPositionX: false
+      LockPositionY: false
+      LockPositionZ: false
+      LockRotationX: false
+      LockRotationY: false
+      LockRotationZ: false
       FixedRotation: false
       Friction: 0.05
       Restitution: 0
@@ -123,8 +181,8 @@ Entities:
     EntityNameComponent:
       Name: Camera
     TransformComponent:
-      Position: [0, 5.2319345, 6.774338]
-      Rotation: [-0.43288785, 0, 0]
+      Position: [0, 3.3628032, 7.1286397]
+      Rotation: [-0.18733238, 0, 0]
       Scale: [1, 1, 1]
     CameraComponent:
       PrimaryCamera: true
@@ -141,7 +199,7 @@ Entities:
     EntityNameComponent:
       Name: Player
     TransformComponent:
-      Position: [-5.15, 2.1991873, -3.977299]
+      Position: [-5.049781, 0.5413127, -3.9772992]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
     MeshRendererComponent:
@@ -165,6 +223,9 @@ Entities:
         - Name: currentSceneName
           Type: String
           Data: DefaultScene.hrs
+        - Name: deadZoneName
+          Type: String
+          Data: DeadZone
         - Name: firstKeyPlatformPosition
           Type: Vector3
           Data: [1, 0.5, -1.95]
@@ -177,6 +238,9 @@ Entities:
         - Name: jumpForce
           Type: Float
           Data: 6
+        - Name: moveablePlatformTag
+          Type: String
+          Data: MoveablePlatform
         - Name: sceneLoadDelay
           Type: Float
           Data: 999999
@@ -191,6 +255,12 @@ Entities:
           Data: seconds Text
     Rigidbody3DComponent:
       BodyType: Dynamic
+      LockPositionX: false
+      LockPositionY: false
+      LockPositionZ: false
+      LockRotationX: true
+      LockRotationY: true
+      LockRotationZ: true
       FixedRotation: false
       Friction: 0
       Restitution: 0
@@ -238,6 +308,12 @@ Entities:
           Data: [1, 0.5, -1.95]
     Rigidbody3DComponent:
       BodyType: Kinematic
+      LockPositionX: false
+      LockPositionY: false
+      LockPositionZ: false
+      LockRotationX: false
+      LockRotationY: false
+      LockRotationZ: false
       FixedRotation: false
       Friction: 0.05
       Restitution: 0
@@ -352,6 +428,61 @@ Entities:
       MaterialHandleOverrides:
         - 984707302067005557
         - 0
+    BoxCollider3DComponent:
+      Offset: [0, 0.2, 0]
+      Size: [0.35, 0.2, 0.35]
+      IsTrigger: false
+  - Entity: 15616755041600098444
+    EntityNameComponent:
+      Name: DeadZone
+    TransformComponent:
+      Position: [0, -3.7360988, -5.79053]
+      Rotation: [0, 0, 0]
+      Scale: [25.353447, 1, 22.702112]
+    BoxCollider3DComponent:
+      Offset: [0, 0, 0]
+      Size: [0.5, 0.5, 0.5]
+      IsTrigger: true
+  - Entity: 303772641721672405
+    EntityNameComponent:
+      Name: MovablePlatformUp
+    TagComponent:
+      Tags:
+        - Ground
+        - MoveablePlatform
+    TransformComponent:
+      Position: [-8, 0, -4]
+      Rotation: [0, 0, 0]
+      Scale: [2, 1, 2]
+    MeshRendererComponent:
+      MeshHandle: 14213266826641648093
+      Color: [1, 1, 1, 1]
+      TextureHandle: 0
+      TilingFactor: 1
+      MaterialHandleOverrides:
+        - 984707302067005557
+        - 0
+    ScriptComponent:
+      ClassName: HRealEngine.MoveablePlatform
+      ScriptFields:
+        - Name: EndPosition
+          Type: Vector3
+          Data: [-8, 3, -4]
+        - Name: Speed
+          Type: Float
+          Data: 1
+    Rigidbody3DComponent:
+      BodyType: Kinematic
+      LockPositionX: false
+      LockPositionY: false
+      LockPositionZ: false
+      LockRotationX: false
+      LockRotationY: false
+      LockRotationZ: false
+      FixedRotation: false
+      Friction: 0.05
+      Restitution: 0
+      Convex Radius: 0.02
     BoxCollider3DComponent:
       Offset: [0, 0.2, 0]
       Size: [0.35, 0.2, 0.35]

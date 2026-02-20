@@ -18,14 +18,18 @@ namespace HRealEngine
         public Vector3 firstKeyPlatformPosition = new Vector3(0, 5, 0);
         
         public string groundTag = "Ground";
+        public string moveablePlatformTag = "MoveablePlatform";
         public string timerTextName = "TimerText";
         public string bulletObjectName = "BulletPrefab";
         public string currentSceneName = "CurrentScene";
+        public string deadZoneName = "DeadZone";
         
         public string scenePathToLoad = "Scenes/Level1.hrs";
         public float sceneLoadDelay = 31.0f;
         private float elapsedTime = 0.0f;
         private bool sceneLoaded = false;
+        
+        private MoveablePlatform currentPlatform = null;
         
         void OnCreate()
         {
@@ -72,7 +76,14 @@ namespace HRealEngine
                 
                 Vector3 currentVel = rb3D.GetLinearVelocity();
                 Vector3 desiredVel = new Vector3(dir.X * speed, currentVel.Y, dir.Z * speed);
-                rb3D.SetLinearVelocity(desiredVel);
+                
+                Vector3 finalVel = desiredVel;
+                if (currentPlatform != null)
+                {
+                    Vector3 platVel = currentPlatform.GetPlatformVelocity();
+                    finalVel = finalVel + new Vector3(platVel.X, 0, platVel.Z);
+                }
+                rb3D.SetLinearVelocity(finalVel);
                 
                 float yawRad = (float)Math.Atan2(dir.X, dir.Z);
                 float yawDeg = yawRad * 57.29578f;
@@ -83,7 +94,13 @@ namespace HRealEngine
             else
             {
                 Vector3 v = rb3D.GetLinearVelocity();
-                rb3D.SetLinearVelocity(new Vector3(0.0f, v.Y, 0.0f));
+                Vector3 finalVel = new Vector3(0.0f, v.Y, 0.0f);
+                if (currentPlatform != null)
+                {
+                    Vector3 platVel = currentPlatform.GetPlatformVelocity();
+                    finalVel = finalVel + new Vector3(platVel.X, 0, platVel.Z);
+                }
+                rb3D.SetLinearVelocity(finalVel);
             }
             
             if (Input.IsKeyDown(KeyCodes.HRE_KEY_SPACE) && bIsGrounded)
@@ -134,6 +151,17 @@ namespace HRealEngine
                 Console.WriteLine("Player landed on the ground.");
                 bIsGrounded = true;
             }
+            if(otherID == FindEntityByName(deadZoneName)?.EntityID)
+            {
+                Console.WriteLine("Player entered the dead zone! Game Over.");
+                OpenScene(currentSceneName);
+            }
+            if (FromID(otherID).HasTag(moveablePlatformTag))
+            {
+                Console.WriteLine("Player landed on a moveable platform.");
+                bIsGrounded = true;
+                currentPlatform = FromID(otherID).As<MoveablePlatform>();
+            }
         }
 
         void OnCollisionExit2D(ulong otherID)
@@ -147,6 +175,12 @@ namespace HRealEngine
             {
                 Console.WriteLine("Player lost the key!");
                 currentKeyOneID = 0;
+            }
+            if (FromID(otherID).HasTag(moveablePlatformTag))
+            {
+                Console.WriteLine("Player left the moveable platform.");
+                bIsGrounded = false;
+                currentPlatform = null;
             }
         }
     }
