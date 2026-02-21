@@ -34,7 +34,7 @@ public class AttackAction : BTActionNode
     
     public override void OnStart()
     {
-        Vector3 spawnPosition = owner.Translation + new Vector3(0, 1, 0); // Spawn below the enemy,
+        Vector3 spawnPosition = owner.Position + new Vector3(0, 1, 0); // Spawn below the enemy,
         Vector3 spawnRotation = Vector3.Zero; // No rotation
         Vector3 spawnScale = new Vector3(1, 1, 1); // Default scale
         Console.WriteLine("AttackAction: Starting attack action. Spawn position: " + spawnPosition);
@@ -45,7 +45,7 @@ public class AttackAction : BTActionNode
             Console.WriteLine("AttackAction: Player entity not found with tag: " + attackParams.PlayerTagKey);
             return;
         }
-        Vector3 toPlayer = player.Translation - owner.Translation;
+        Vector3 toPlayer = player.Position - owner.Position;
         if (toPlayer.LengthSquared() > 0.0001f)
             toPlayer = toPlayer.Normalized();
 
@@ -54,7 +54,7 @@ public class AttackAction : BTActionNode
         
         Entity bullet = SpawnEntity("BulletPrefab", "Bullet", spawnPosition, spawnRotation, spawnScale);
         Console.WriteLine("Bullet spawned with entity ID: " + bullet.EntityID);
-        bullet.Translation = spawnPosition;
+        bullet.Position = spawnPosition;
                 
         bullet.AddRigidbody3DComponent(RigidBodyType.Dynamic, false, 0.5f, 0.1f, 0.01f);
         Rigidbody3DComponent rb = bullet.GetComponent<Rigidbody3DComponent>();

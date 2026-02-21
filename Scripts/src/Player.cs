@@ -38,6 +38,29 @@ namespace HRealEngine
             transform = GetComponent<TransformComponent>();
             float elapsedTimeFromMenu = GameModeData.GetFloatData("ElapsedTime");
             Console.WriteLine("Elapsed time from menu: " + elapsedTimeFromMenu);
+            
+            ulong[] ignoreEntities = new ulong[] { EntityID };
+            /*if (GlobalFunctions.Raycast3D(transform.Position + new Vector3(0,0,0), new Vector3(1,0,0), 10f, out var hit, ignoreEntities,true, 4))
+            {
+                Console.WriteLine($"Hit: {hit.EntityID}");
+            }else
+            {
+                Console.WriteLine("No hit detected in raycast.");
+            }*/
+            /*RaycastHit[] hits = GlobalFunctions.Raycast3DAll(transform.Position + new Vector3(0, 0, 0), 
+                new Vector3(1, 0, 0), 10f, ignoreEntities, true, 4);
+            if (hits != null && hits.Length > 0)
+            {
+                Console.WriteLine($"Raycast hit {hits.Length} entities:");
+                foreach (var hit in hits)
+                {
+                    Console.WriteLine($"- Hit Entity ID: {hit.EntityID}, Point: {hit.Point}, Normal: {hit.Normal}, Distance: {hit.Distance}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("No hit detected in raycast.");
+            }*/
         }
         void OnDestroy()
         {
@@ -118,7 +141,7 @@ namespace HRealEngine
                 Entity platform = FindEntityByName(firstKeyPlatformTag);
                 if (platform != null)
                 {
-                    platform.Translation = firstKeyPlatformPosition;
+                    platform.Position = firstKeyPlatformPosition;
                     Console.WriteLine("First key platform moved to: " + firstKeyPlatformPosition);
                     currentKeyOneID = 0;
                 }

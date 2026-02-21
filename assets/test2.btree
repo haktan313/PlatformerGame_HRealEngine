@@ -24,19 +24,6 @@ BehaviorTree:
           []
         Params:
           {}
-      - ID: 3
-        Name: Selector
-        Type: 3
-        RuntimeUID: 2
-        Class: class SelectorNode
-        PosX: 64
-        PosY: 195
-        Decorators:
-          []
-        Conditions:
-          []
-        Params:
-          {}
       - ID: 6
         Name: AttackAction
         Type: 4
@@ -59,21 +46,34 @@ BehaviorTree:
         Params:
           bulletMeshPath: Pwenguen.hmesh
           PlayerTagKey: Player
+      - ID: 10
+        Name: Sequence
+        Type: 2
+        RuntimeUID: 2
+        Class: class SequenceNode
+        PosX: 84
+        PosY: 174
+        Decorators:
+          []
+        Conditions:
+          []
+        Params:
+          {}
     Links:
-      - ID: 8
+      - ID: 13
         StartNodeID: 1
-        EndNodeID: 3
-      - ID: 9
-        StartNodeID: 3
+        EndNodeID: 10
+      - ID: 14
+        StartNodeID: 10
         EndNodeID: 6
   RuntimeData:
     Name: Root
     Type: Root
     Class: class HRootNode
     Children:
-      - Name: Selector
+      - Name: Sequence
         Type: Composite
-        Class: class SelectorNode
+        Class: class SequenceNode
         Children:
           - Name: CooldownDecorator
             Type: Decorator

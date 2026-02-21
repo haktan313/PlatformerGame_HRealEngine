@@ -13,7 +13,7 @@ namespace HRealEngine
         void BeginPlay()
         {
             transform = GetComponent<TransformComponent>();
-            StartPosition = transform.Translation;
+            StartPosition = transform.Position;
         }
         
         void OnDestroy()
@@ -25,10 +25,10 @@ namespace HRealEngine
         {
             Vector3 direction = (EndPosition - StartPosition).Normalized();
         
-            float distanceToEnd = Vector3.Distance(transform.Translation, EndPosition);
+            float distanceToEnd = Vector3.Distance(transform.Position, EndPosition);
             if (distanceToEnd < Speed * ts)
             {
-                transform.Translation = EndPosition;
+                transform.Position = EndPosition;
                 Vector3 temp = StartPosition;
                 StartPosition = EndPosition;
                 EndPosition = temp;
@@ -37,7 +37,7 @@ namespace HRealEngine
             else
             {
                 platformVelocity = direction * Speed;
-                transform.Translation = transform.Translation + platformVelocity * ts;
+                transform.Position = transform.Position + platformVelocity * ts;
             }
         }
         

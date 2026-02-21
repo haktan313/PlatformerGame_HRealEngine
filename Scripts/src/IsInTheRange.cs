@@ -43,8 +43,8 @@ public class IsInTheRange : BTCondition
         TransformComponent ownerTransform = owner.GetComponent<TransformComponent>();
         if (playerTransform == null || ownerTransform == null)
             return false;
-        var playerPos = playerTransform.Translation;
-        var ownerPos = ownerTransform.Translation;
+        var playerPos = playerTransform.Position;
+        var ownerPos = ownerTransform.Position;
 
         float dx = playerPos.X - ownerPos.X;
         float dy = playerPos.Y - ownerPos.Y;

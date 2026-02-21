@@ -19,7 +19,7 @@ namespace HRealEngine
             Entity platform = FindEntityByName(platformTag);
             if (platform != null)
             {
-                originalPlatformPosition = platform.Translation;
+                originalPlatformPosition = platform.Position;
                 Console.WriteLine("Original platform position stored: " + originalPlatformPosition);
             }
         }
@@ -38,8 +38,8 @@ namespace HRealEngine
                 Entity platform = FindEntityByName(platformTag);
                 if (platform != null)
                 {
-                    originalPlatformPosition = platform.Translation;
-                    platform.Translation = positionForPlatform;
+                    originalPlatformPosition = platform.Position;
+                    platform.Position = positionForPlatform;
                     Console.WriteLine("Platform moved to: " + positionForPlatform);
                     bIsActivated = true;
                     overlapEntitiesIDs.Add(otherID);
@@ -60,7 +60,7 @@ namespace HRealEngine
                     Entity platform = FindEntityByName(platformTag);
                     if (platform != null && bIsActivated)
                     {
-                        platform.Translation = originalPlatformPosition;
+                        platform.Position = originalPlatformPosition;
                         Console.WriteLine("Platform reset to: " + originalPlatformPosition);
                         bIsActivated = false;
                     }
