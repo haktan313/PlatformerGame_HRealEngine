@@ -12,7 +12,7 @@ namespace HRealEngine
         private float delayTime = 0.01f;
         private float elapsedTime = 0.0f;
         private bool bDoOnce = false;
-        void OnCreate()
+        void BeginPlay()
         {
             Console.WriteLine("MenuController created with entity ID: " + EntityID);
         }
@@ -22,7 +22,7 @@ namespace HRealEngine
             Console.WriteLine("MenuController destroyed with entity ID: " + EntityID);
         }
         
-        void OnUpdate(float ts)
+        void Tick(float ts)
         {
             elapsedTime += ts;
             if (!bDoOnce)

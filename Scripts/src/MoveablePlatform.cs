@@ -10,7 +10,7 @@ namespace HRealEngine
         public float Speed = 1.0f;
         
         private Vector3 platformVelocity = Vector3.Zero;
-        void OnCreate()
+        void BeginPlay()
         {
             transform = GetComponent<TransformComponent>();
             StartPosition = transform.Translation;
@@ -21,7 +21,7 @@ namespace HRealEngine
             
         }
         
-        void OnUpdate(float ts)
+        void Tick(float ts)
         {
             Vector3 direction = (EndPosition - StartPosition).Normalized();
         

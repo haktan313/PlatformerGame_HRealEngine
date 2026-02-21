@@ -5,7 +5,7 @@ namespace HRealEngine
 {
     public class Enemy : Entity
     { 
-        void OnCreate()
+        void BeginPlay()
         {
             Console.WriteLine("Enemy created with entity ID: " + EntityID);
         }
@@ -15,7 +15,7 @@ namespace HRealEngine
             Console.WriteLine("Enemy destroyed with entity ID: " + EntityID);
         }
         
-        void OnUpdate(float ts)
+        void Tick(float ts)
         {
 
         }

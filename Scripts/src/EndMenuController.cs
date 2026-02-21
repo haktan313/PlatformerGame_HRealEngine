@@ -13,7 +13,7 @@ namespace HRealEngine
         private float elapsedTime = 0.0f;
         private bool bDoOnce = false;
         
-        void OnCreate()
+        void BeginPlay()
         {
             Console.WriteLine("EndMenuController created with entity ID: " + EntityID);
             float elapsedTime = GameModeData.GetFloatData("GameElapsedTime");
@@ -34,7 +34,7 @@ namespace HRealEngine
             Console.WriteLine("EndMenuController destroyed with entity ID: " + EntityID);
         }
 
-        void OnUpdate(float ts)
+        void Tick(float ts)
         {
             elapsedTime += ts;
             if (!bDoOnce)

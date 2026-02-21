@@ -31,7 +31,7 @@ namespace HRealEngine
         
         private MoveablePlatform currentPlatform = null;
         
-        void OnCreate()
+        void BeginPlay()
         {
             Console.WriteLine("Player created with entity ID: " + EntityID);
             rb3D = GetComponent<Rigidbody3DComponent>();
@@ -43,7 +43,7 @@ namespace HRealEngine
         {
 
         }
-        void OnUpdate(float ts)
+        void Tick(float ts)
         {
             if (!sceneLoaded)
             {
@@ -134,7 +134,7 @@ namespace HRealEngine
             }
         }
         
-        void OnCollisionEnter2D(ulong otherID)
+        void OnCollisionEnter(ulong otherID)
         {
             if (otherID == FindEntityByName(KeyOne)?.EntityID)
             {
@@ -146,7 +146,7 @@ namespace HRealEngine
                 Console.WriteLine("Player hit by a bullet! Game Over.");
                 OpenScene(currentSceneName);
             }
-            if (Entity.FromID(otherID).HasTag(groundTag))
+            if (FromID(otherID).HasTag(groundTag))
             {
                 Console.WriteLine("Player landed on the ground.");
                 bIsGrounded = true;
@@ -164,9 +164,9 @@ namespace HRealEngine
             }
         }
 
-        void OnCollisionExit2D(ulong otherID)
+        void OnCollisionExit(ulong otherID)
         {
-            if (Entity.FromID(otherID).HasTag(groundTag))
+            if (FromID(otherID).HasTag(groundTag))
             {
                 Console.WriteLine("Player landed on the ground.");
                 bIsGrounded = true;
