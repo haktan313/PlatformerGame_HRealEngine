@@ -6,17 +6,18 @@ namespace HRealEngine
 {
     public class Button : Entity
     {
-        public string platformTag = "Platform";
+        public string platformName = "Platform";
         public Vector3 positionForPlatform = new Vector3(0, 5, 0);
         
         private bool bIsActivated = false;
         private Vector3 originalPlatformPosition = Vector3.Zero;
         private List<ulong> overlapEntitiesIDs = new List<ulong>();
         
-        void OnCreate()
+        void BeginPlay()
         {
             Console.WriteLine("Button created with entity ID: " + EntityID);
-            Entity platform = FindEntityByName(platformTag);
+            overlapEntitiesIDs.Clear();
+            Entity platform = FindEntityByName(platformName);
             if (platform != null)
             {
                 originalPlatformPosition = platform.Position;
@@ -26,16 +27,16 @@ namespace HRealEngine
         void OnDestroy()
         {
         }
-        void OnUpdate(float ts)
+        void Tick(float ts)
         {
         }
-        void OnCollisionEnter2D(ulong otherID)
+        void OnCollisionEnter(ulong otherID)
         {
             Console.WriteLine("Button collided with entity ID: " + otherID);
             if (!bIsActivated && overlapEntitiesIDs.Count == 0)
             {
-                Console.WriteLine("Button activated by player!");
-                Entity platform = FindEntityByName(platformTag);
+                Console.WriteLine("Button activated!");
+                Entity platform = FindEntityByName(platformName);
                 if (platform != null)
                 {
                     originalPlatformPosition = platform.Position;
@@ -49,7 +50,7 @@ namespace HRealEngine
                 overlapEntitiesIDs.Add(otherID);
             }
         }
-        void OnCollisionExit2D(ulong otherID)
+        void OnCollisionExit(ulong otherID)
         {
             if (bIsActivated && overlapEntitiesIDs.Contains(otherID))
             {
@@ -57,7 +58,7 @@ namespace HRealEngine
                 if (overlapEntitiesIDs.Count == 0)
                 {
                     Console.WriteLine("Button deactivated by player!");
-                    Entity platform = FindEntityByName(platformTag);
+                    Entity platform = FindEntityByName(platformName);
                     if (platform != null && bIsActivated)
                     {
                         platform.Position = originalPlatformPosition;

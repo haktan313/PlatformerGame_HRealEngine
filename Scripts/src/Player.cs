@@ -6,23 +6,21 @@ namespace HRealEngine
     public class Player : Entity
     {
         private Rigidbody3DComponent rb3D;
-        private TransformComponent transform;
         
         public float speed = 5.0f;
         public float jumpForce = 10.0f;
         private bool bIsGrounded = false;
         
-        public string KeyOne = "KeyOne";
-        private ulong currentKeyOneID = 0;
-        public string firstKeyPlatformTag = "FirstKeyPlatform";
-        public Vector3 firstKeyPlatformPosition = new Vector3(0, 5, 0);
+        public string keyTag = "Key";
+        private Key currentKey = null;
+        
+        public string finishTag = "Finish";
         
         public string groundTag = "Ground";
         public string moveablePlatformTag = "MoveablePlatform";
         public string timerTextName = "TimerText";
         public string bulletObjectName = "BulletPrefab";
         public string currentSceneName = "CurrentScene";
-        public string deadZoneName = "DeadZone";
         
         public string scenePathToLoad = "Scenes/Level1.hrs";
         public float sceneLoadDelay = 31.0f;
@@ -35,7 +33,6 @@ namespace HRealEngine
         {
             Console.WriteLine("Player created with entity ID: " + EntityID);
             rb3D = GetComponent<Rigidbody3DComponent>();
-            transform = GetComponent<TransformComponent>();
             float elapsedTimeFromMenu = GameModeData.GetFloatData("ElapsedTime");
             Console.WriteLine("Elapsed time from menu: " + elapsedTimeFromMenu);
             
@@ -134,17 +131,10 @@ namespace HRealEngine
                 bIsGrounded = false;
             }
             
-            if (currentKeyOneID != 0 && Input.IsKeyDown(KeyCodes.HRE_KEY_E))
+            if (Input.IsKeyDown(KeyCodes.HRE_KEY_E) && currentKey != null)
             {
-                FindEntityByName(KeyOne)?.Destroy(FindEntityByName(KeyOne)?.EntityID ?? 0);
-                Console.WriteLine("Player used the key to open the door!");
-                Entity platform = FindEntityByName(firstKeyPlatformTag);
-                if (platform != null)
-                {
-                    platform.Position = firstKeyPlatformPosition;
-                    Console.WriteLine("First key platform moved to: " + firstKeyPlatformPosition);
-                    currentKeyOneID = 0;
-                }
+                Console.WriteLine("Player interacts with key!");
+                currentKey.Interact();
             }
             
             elapsedTime += ts;
@@ -159,11 +149,6 @@ namespace HRealEngine
         
         void OnCollisionEnter(ulong otherID)
         {
-            if (otherID == FindEntityByName(KeyOne)?.EntityID)
-            {
-                Console.WriteLine("Player collected the key!");
-                currentKeyOneID = otherID;
-            }
             if (otherID == FindEntityByName(bulletObjectName)?.EntityID)
             {
                 Console.WriteLine("Player hit by a bullet! Game Over.");
@@ -174,16 +159,23 @@ namespace HRealEngine
                 Console.WriteLine("Player landed on the ground.");
                 bIsGrounded = true;
             }
-            if(otherID == FindEntityByName(deadZoneName)?.EntityID)
-            {
-                Console.WriteLine("Player entered the dead zone! Game Over.");
-                OpenScene(currentSceneName);
-            }
             if (FromID(otherID).HasTag(moveablePlatformTag))
             {
                 Console.WriteLine("Player landed on a moveable platform.");
                 bIsGrounded = true;
                 currentPlatform = FromID(otherID).As<MoveablePlatform>();
+            }
+            if (FromID(otherID).HasTag(keyTag))
+            {
+                currentKey = FromID(otherID).As<Key>();
+                if(currentKey != null)
+                    currentKey.ShowInteractUI();
+            }
+            if (FromID(otherID).HasTag(finishTag))
+            {
+                Console.WriteLine("Player reached the finish! Loading next scene...");
+                GameModeData.SetFloatData("GameElapsedTime", elapsedTime);
+                OpenScene(scenePathToLoad);
             }
         }
 
@@ -194,16 +186,19 @@ namespace HRealEngine
                 Console.WriteLine("Player landed on the ground.");
                 bIsGrounded = true;
             }
-            if (otherID == currentKeyOneID)
-            {
-                Console.WriteLine("Player lost the key!");
-                currentKeyOneID = 0;
-            }
             if (FromID(otherID).HasTag(moveablePlatformTag))
             {
                 Console.WriteLine("Player left the moveable platform.");
                 bIsGrounded = false;
                 currentPlatform = null;
+            }
+            if (FromID(otherID).HasTag(keyTag))
+            {
+                if (currentKey != null)
+                {
+                    currentKey.HideInteractUI();
+                    currentKey = null;
+                }
             }
         }
     }

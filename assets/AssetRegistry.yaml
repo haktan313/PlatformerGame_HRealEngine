@@ -8,11 +8,11 @@ AssetRegistry:
   - Handle: 4464364894960285490
     FilePath: Imported/Pwenguen/Textures/embedded_0.png
     Type: AssetType::Texture
-  - Handle: 12318147520427006693
-    FilePath: Scenes/Level1.hrs
-    Type: AssetType::Scene
   - Handle: 771012059488381640
     FilePath: Scenes/Menu.hrs
+    Type: AssetType::Scene
+  - Handle: 12318147520427006693
+    FilePath: Scenes/Level1.hrs
     Type: AssetType::Scene
   - Handle: 14203005140024592889
     FilePath: Scenes/EndMenu.hrs
@@ -20,12 +20,12 @@ AssetRegistry:
   - Handle: 12731337524356985477
     FilePath: Imported/Pwenguen/Materials/Pwenguen_penguen_material.hmat
     Type: AssetType::Material
-  - Handle: 7840225679639347890
-    FilePath: test2.btree
-    Type: AssetType::BehaviorTree
   - Handle: 14213266826641648093
     FilePath: Platform.hmesh
     Type: AssetType::Mesh
+  - Handle: 7840225679639347890
+    FilePath: test2.btree
+    Type: AssetType::BehaviorTree
   - Handle: 12131783294489691398
     FilePath: Imported/Pwenguen/Textures/embedded_1.png
     Type: AssetType::Texture
@@ -41,3 +41,6 @@ AssetRegistry:
   - Handle: 2093300204790232219
     FilePath: Imported/penguin.jpg
     Type: AssetType::Texture
+  - Handle: 9665343364359695930
+    FilePath: Scenes/PlatformerLevel1.hrs
+    Type: AssetType::Scene
