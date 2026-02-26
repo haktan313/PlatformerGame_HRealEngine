@@ -4,7 +4,7 @@ BehaviorTree:
     Floats:
       {}
     Ints:
-      {}
+      PlayerEntityID: 0
     Bools:
       {}
     Strings:
@@ -16,64 +16,91 @@ BehaviorTree:
         Type: 1
         RuntimeUID: 1
         Class: class HRootNode
-        PosX: 0
-        PosY: 0
+        PosX: 52
+        PosY: -114
         Decorators:
           []
         Conditions:
           []
         Params:
           {}
-      - ID: 6
+      - ID: 3
         Name: AttackAction
         Type: 4
-        RuntimeUID: 4
+        RuntimeUID: 5
         Class: class HRealEngine::ManagedBTAction
-        PosX: 68
-        PosY: 314
+        PosX: -44
+        PosY: 170
         Decorators:
           - Name: CooldownDecorator
             ClassName: CooldownDecorator
             Params:
-              CooldownTime: 2
+              CooldownTime: 1
         Conditions:
           - Name: IsInTheRange
             ClassName: IsInTheRange
             Params:
               Priority: Both
               PlayerTagKey: Player
-              MinRange: 4
+              MinRange: 5
         Params:
           bulletMeshPath: Pwenguen.hmesh
           PlayerTagKey: Player
-      - ID: 10
-        Name: Sequence
-        Type: 2
-        RuntimeUID: 2
-        Class: class SequenceNode
-        PosX: 84
-        PosY: 174
+      - ID: 5
+        Name: SetFocus
+        Type: 4
+        RuntimeUID: 7
+        Class: class HRealEngine::ManagedBTAction
+        PosX: 180
+        PosY: 186
         Decorators:
           []
         Conditions:
           []
         Params:
+          TargetEntityIDKey: TargetEntityID
+      - ID: 7
+        Name: Selector
+        Type: 3
+        RuntimeUID: 2
+        Class: class SelectorNode
+        PosX: 36
+        PosY: 14
+        Decorators:
+          []
+        Conditions:
+          - Name: HasTarget
+            ClassName: HasTarget
+            Params:
+              Priority: Both
+              TargetEntityIDKey: TargetEntityID
+        Params:
           {}
     Links:
-      - ID: 13
+      - ID: 10
         StartNodeID: 1
-        EndNodeID: 10
-      - ID: 14
-        StartNodeID: 10
-        EndNodeID: 6
+        EndNodeID: 7
+      - ID: 11
+        StartNodeID: 7
+        EndNodeID: 3
+      - ID: 12
+        StartNodeID: 7
+        EndNodeID: 5
   RuntimeData:
     Name: Root
     Type: Root
     Class: class HRootNode
     Children:
-      - Name: Sequence
+      - Name: Selector
         Type: Composite
-        Class: class SequenceNode
+        Class: class SelectorNode
+        Conditions:
+          - Name: HasTarget
+            Type: Condition
+            Class: class HRealEngine::ManagedBTCondition
+            Priority: Both
+            Params:
+              TargetEntityIDKey: TargetEntityID
         Children:
           - Name: CooldownDecorator
             Type: Decorator
@@ -89,12 +116,17 @@ BehaviorTree:
                   Priority: Both
                   Params:
                     PlayerTagKey: Player
-                    MinRange: 4
+                    MinRange: 5
               Params:
                 bulletMeshPath: Pwenguen.hmesh
                 PlayerTagKey: Player
             Params:
-              CooldownTime: 2
+              CooldownTime: 1
+          - Name: SetFocus
+            Type: Action
+            Class: class HRealEngine::ManagedBTAction
+            Params:
+              TargetEntityIDKey: TargetEntityID
         Params:
           {}
     Params:
