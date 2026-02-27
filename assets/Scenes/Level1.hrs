@@ -1,4 +1,6 @@
-Scene: Untitled
+Scene: Level1
+SceneSettings:
+  Physic: 3D
 Entities:
   - Entity: 9024682530458376267
     EntityNameComponent:

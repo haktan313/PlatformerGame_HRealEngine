@@ -6,6 +6,8 @@ namespace HRealEngine
     public class Enemy : Entity
     { 
         private AIControllerComponent aiControllerComponent;
+        private Entity focusTarget;
+        private float rotationSpeed = 5f;
         void BeginPlay()
         {
             Console.WriteLine("Enemy created with entity ID: " + EntityID);
@@ -27,6 +29,18 @@ namespace HRealEngine
         
         void Tick(float ts)
         {
+            if (focusTarget != null)
+            {
+                Vector3 direction = focusTarget.Position - Position;
+                direction.Y = 0;
+                direction = direction.Normalized();
+        
+                float targetYaw = (float)Math.Atan2(-direction.X, -direction.Z);
+                float currentYaw = Rotation.Y;
+                
+                float newYaw = LerpAngle(currentYaw, targetYaw, rotationSpeed * ts);
+                Rotation = new Vector3(0, newYaw, 0);
+            }
         }
 
         public override void OnEntityPerceived(ulong entityID, int perceptionMethod, Vector3 position)
@@ -64,7 +78,19 @@ namespace HRealEngine
 
         public void SetFocusToTarget(Entity target)
         {
-            Console.WriteLine($"Enemy {EntityID} is now focusing on target entity {target.EntityID}");
+            focusTarget = target;
+        }
+        public void ClearFocus()
+        {
+            focusTarget = null;
+        }
+        private float LerpAngle(float from, float to, float t)
+        {
+            float diff = to - from;
+            while (diff > Math.PI) diff -= (float)(2 * Math.PI);
+            while (diff < -Math.PI) diff += (float)(2 * Math.PI);
+            t = t < 0f ? 0f : (t > 1f ? 1f : t);
+            return from + diff * t;
         }
     }
 }

@@ -1,4 +1,6 @@
-Scene: Untitled
+Scene: PlatformerLevel1
+SceneSettings:
+  Physic: 3D
 Entities:
   - Entity: 9696028452008240434
     EntityNameComponent:

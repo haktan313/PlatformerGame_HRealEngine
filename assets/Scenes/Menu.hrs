@@ -1,4 +1,6 @@
-Scene: Untitled
+Scene: Menu
+SceneSettings:
+  Physic: 3D
 Entities:
   - Entity: 15365266024619529492
     EntityNameComponent:
