@@ -8,6 +8,7 @@ namespace HRealEngine
         private Vector3 StartPosition;
         public Vector3 EndPosition;
         public float Speed = 1.0f;
+        public bool bCanMove = true;
         
         private Vector3 platformVelocity = Vector3.Zero;
         void BeginPlay()
@@ -23,6 +24,11 @@ namespace HRealEngine
         
         void Tick(float ts)
         {
+            if (!bCanMove)
+            {
+                platformVelocity = Vector3.Zero;
+                return;
+            }
             Vector3 direction = (EndPosition - StartPosition).Normalized();
         
             float distanceToEnd = Vector3.Distance(transform.Position, EndPosition);
@@ -44,6 +50,10 @@ namespace HRealEngine
         public Vector3 GetPlatformVelocity()
         {
             return platformVelocity;
+        }
+        public void SetCanMove(bool canMove)
+        {
+            bCanMove = canMove;
         }
     }
 }

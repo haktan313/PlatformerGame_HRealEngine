@@ -44,3 +44,12 @@ AssetRegistry:
   - Handle: 9665343364359695930
     FilePath: Scenes/PlatformerLevel1.hrs
     Type: AssetType::Scene
+  - Handle: 13251340725499194301
+    FilePath: Scenes/PlatformerLevel2.hrs
+    Type: AssetType::Scene
+  - Handle: 13032217244792432881
+    FilePath: Scenes/PlatformerLevel3.hrs
+    Type: AssetType::Scene
+  - Handle: 5899946951217835759
+    FilePath: test22.btree
+    Type: AssetType::BehaviorTree

@@ -8,9 +8,12 @@ public class CooldownParams : BTDecoratorParams
 {
     [BTParameter("Cooldown Time")]
     public float CooldownTime = 5.0f;
+    [BTParameter("Start On First Execution")]
+    public bool StartOnFirstExecution = true;
 }
 
-public class CooldownDecorator : BTDecorator {
+public class CooldownDecorator : BTDecorator 
+{
     private CooldownParams cooldownParams;
     private float elapsedTime = 0f;
     private bool onCooldown = false;
@@ -32,9 +35,21 @@ public class CooldownDecorator : BTDecorator {
         cooldownParams = param as CooldownParams;
     }
 
+    public override void OnStart()
+    {
+        if (cooldownParams.StartOnFirstExecution)
+        {
+            onCooldown = true;
+            elapsedTime = 0f;
+        }
+        else
+            onCooldown = false;
+    }
+
     public override bool CanExecute()
     {
-        if (!onCooldown) return true;
+        if (!onCooldown) 
+            return true;
 
         elapsedTime += GetDeltaTime();
 
