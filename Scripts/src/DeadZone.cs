@@ -5,6 +5,7 @@ namespace HRealEngine
     public class DeadZone : Entity
     {
         public string playerTag = "Player";
+        public string enemyTag = "Enemy";
         public string interactableBoxesTag = "InteractableBoxes";
         public string currentSceneName = "CurrentScene";
         
@@ -39,8 +40,16 @@ namespace HRealEngine
         
         void OnCollisionEnter(ulong otherID)
         {
+            if(FromID(otherID) == null)
+                return;
+            if (FromID(otherID).HasTag(enemyTag))
+                Destroy(FromID(otherID).EntityID);
             if (FromID(otherID).HasTag(playerTag))
-                OpenScene(currentSceneName);
+            {
+                Player player = FromID(otherID).As<Player>();
+                if (player != null)
+                    player.Dead(currentSceneName);
+            }
             if (FromID(otherID).HasTag(interactableBoxesTag))
             {
                 interactableBox = FromID(otherID);

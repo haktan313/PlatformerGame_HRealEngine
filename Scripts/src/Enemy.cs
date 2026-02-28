@@ -42,6 +42,11 @@ namespace HRealEngine
                 Rotation = new Vector3(0, newYaw, 0);
             }
         }
+        
+        public void OnCollisionEnter(ulong otherID)
+        {
+
+        }
 
         public override void OnEntityPerceived(ulong entityID, int perceptionMethod, Vector3 position)
         {

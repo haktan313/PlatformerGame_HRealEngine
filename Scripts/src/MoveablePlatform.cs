@@ -14,6 +14,11 @@ namespace HRealEngine
         void BeginPlay()
         {
             transform = GetComponent<TransformComponent>();
+            if (transform == null)
+            {
+                Console.WriteLine("MoveablePlatform with entity ID: " + EntityID + " is missing a TransformComponent!");
+                return;
+            }
             StartPosition = transform.Position;
         }
         
@@ -28,6 +33,14 @@ namespace HRealEngine
             {
                 platformVelocity = Vector3.Zero;
                 return;
+            }
+
+            if (transform == null)
+            {
+                transform = GetComponent<TransformComponent>();
+                if (transform == null)
+                    return;
+                StartPosition = transform.Position;
             }
             Vector3 direction = (EndPosition - StartPosition).Normalized();
         

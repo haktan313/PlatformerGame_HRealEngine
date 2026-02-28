@@ -29,6 +29,11 @@ public class SetFocus : BTActionNode
 
     public override void OnStart()
     {
+        if (blackboard == null)
+        {
+            Console.WriteLine("[SetFocus] blackboard is NULL");
+            return;
+        }
         ulong targetEntityID = blackboard.GetUlong(focusParams.TargetEntityIDKey);
         if (targetEntityID != 0)
         {

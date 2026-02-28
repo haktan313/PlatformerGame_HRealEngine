@@ -97,7 +97,7 @@ BehaviorTree:
               Priority: Both
               AlwaysReevaluate: true
               PlayerTagKey: Player
-              MinRange: 5
+              MinRange: 4.5
         Params:
           {}
       - ID: 16
@@ -111,13 +111,14 @@ BehaviorTree:
           - Name: CooldownDecorator
             ClassName: CooldownDecorator
             Params:
-              CooldownTime: 2
+              CooldownTime: 1
               StartOnFirstExecution: true
         Conditions:
           []
         Params:
           bulletMeshPath: Pwenguen.hmesh
           PlayerTagKey: Player
+          AttackDelay: 1.5
     Links:
       - ID: 18
         StartNodeID: 5
@@ -184,6 +185,7 @@ BehaviorTree:
                       Params:
                         bulletMeshPath: Meshes/BulletMesh.hmesh
                         PlayerTagKey: Player
+                        AttackDelay: 1
                     Params:
                       CooldownTime: 5
                       StartOnFirstExecution: true
@@ -200,7 +202,7 @@ BehaviorTree:
                     AlwaysReevaluate: true
                     Params:
                       PlayerTagKey: Player
-                      MinRange: 5
+                      MinRange: 4.5
                 Children:
                   - Name: CooldownDecorator
                     Type: Decorator
@@ -212,8 +214,9 @@ BehaviorTree:
                       Params:
                         bulletMeshPath: Pwenguen.hmesh
                         PlayerTagKey: Player
+                        AttackDelay: 1.5
                     Params:
-                      CooldownTime: 2
+                      CooldownTime: 1
                       StartOnFirstExecution: true
                 Params:
                   {}

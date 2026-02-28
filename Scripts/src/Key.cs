@@ -8,6 +8,7 @@ namespace HRealEngine
         public string platformName = "Platform";
         public Vector3 positionForPlatform = new Vector3(0, 5, 0);
         public string interactableUIName = "InteractableUI";
+        public bool bNeedsToActivate = false;
         
         void BeginPlay()
         {
@@ -31,6 +32,12 @@ namespace HRealEngine
                 transform.Position = positionForPlatform;
             if (textComponent != null)
                 textComponent.Text = "";
+            if (bNeedsToActivate)
+            {
+                MoveablePlatform platform = FindEntityByName(platformName)?.As<MoveablePlatform>();
+                if (platform != null)
+                    platform.SetCanMove(true);
+            }
             Destroy(EntityID);
         }
     }

@@ -23,9 +23,9 @@ namespace HRealEngine
         public string currentSceneName = "CurrentScene";
         
         public string scenePathToLoad = "Scenes/Level1.hrs";
-        public float sceneLoadDelay = 31.0f;
+
         private float elapsedTime = 0.0f;
-        private bool sceneLoaded = false;
+
         
         private MoveablePlatform currentPlatform = null;
         
@@ -33,8 +33,9 @@ namespace HRealEngine
         {
             Console.WriteLine("Player created with entity ID: " + EntityID);
             rb3D = GetComponent<Rigidbody3DComponent>();
-            float elapsedTimeFromMenu = GameModeData.GetFloatData("ElapsedTime");
+            float elapsedTimeFromMenu = GameModeData.GetFloatData("GameElapsedTime");
             Console.WriteLine("Elapsed time from menu: " + elapsedTimeFromMenu);
+            elapsedTime += GameModeData.GetFloatData("GameElapsedTime");
             
             ulong[] ignoreEntities = new ulong[] { EntityID };
             /*if (GlobalFunctions.Raycast3D(transform.Position + new Vector3(0,0,0), new Vector3(1,0,0), 10f, out var hit, ignoreEntities,true, 4))
@@ -65,18 +66,6 @@ namespace HRealEngine
         }
         void Tick(float ts)
         {
-            if (!sceneLoaded)
-            {
-                elapsedTime += ts;
-                if (elapsedTime >= sceneLoadDelay)
-                {
-                    Console.WriteLine("Scene loaded after delay of " + sceneLoadDelay + " seconds");
-                    GameModeData.SetFloatData("GameElapsedTime", elapsedTime);
-                    sceneLoaded = true;
-                    OpenScene(scenePathToLoad);
-                    return;
-                }
-            }
             /*Vector2 mousePos;
             Input.GetMousePosition(out mousePos);*/
             
@@ -152,6 +141,7 @@ namespace HRealEngine
             if (otherID == FindEntityByName(bulletObjectName)?.EntityID)
             {
                 Console.WriteLine("Player hit by a bullet! Game Over.");
+                GameModeData.SetFloatData("GameElapsedTime", elapsedTime);
                 OpenScene(currentSceneName);
             }
             if (FromID(otherID).HasTag(groundTag))
@@ -200,6 +190,13 @@ namespace HRealEngine
                     currentKey = null;
                 }
             }
+        }
+
+        public void Dead(string sceneToLoad)
+        {
+            Console.WriteLine("Player died! Reloading scene...");
+            GameModeData.SetFloatData("GameElapsedTime", elapsedTime);
+            OpenScene(sceneToLoad);
         }
     }
 }
