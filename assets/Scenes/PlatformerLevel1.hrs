@@ -319,7 +319,7 @@ Entities:
       Tags:
         - Player
     TransformComponent:
-      Position: [-8, 1, 0]
+      Position: [-8, 1, -0.019031763]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
     MeshRendererComponent:
@@ -360,6 +360,9 @@ Entities:
         - Name: moveablePlatformTag
           Type: String
           Data: MoveablePlatform
+        - Name: sceneLoadDelay
+          Type: Float
+          Data: 1e+09
         - Name: scenePathToLoad
           Type: String
           Data: Scenes/PlatformerLevel2.hrs
@@ -428,6 +431,9 @@ Entities:
         - Name: Speed
           Type: Float
           Data: 1.5
+        - Name: bCanMove
+          Type: Bool
+          Data: true
     Rigidbody3DComponent:
       BodyType: Kinematic
       LockPositionX: false
@@ -688,7 +694,7 @@ Entities:
       Color: [1, 1, 1, 1]
       Kerning: 0
       LineSpacing: 0
-  - Entity: 14634679478424311152
+  - Entity: 9889326869904687380
     EntityNameComponent:
       Name: Platformer
     TagComponent:

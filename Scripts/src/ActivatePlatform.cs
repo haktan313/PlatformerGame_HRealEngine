@@ -36,6 +36,8 @@ namespace HRealEngine
 
         void OnCollisionExit(ulong otherID)
         {
+            if(!bIsActivated || overlapEntitiesIDs.Count == 0)
+                return;
             if (bIsActivated && overlapEntitiesIDs.Contains(otherID))
             {
                 overlapEntitiesIDs.Remove(otherID);

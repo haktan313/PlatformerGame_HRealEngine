@@ -72,4 +72,18 @@ public class CooldownDecorator : BTDecorator
             Console.WriteLine($"CooldownDecorator: Cooldown started for {cooldownParams.CooldownTime}s");
         }
     }
+
+    public override void OnAbort()
+    {
+        onCooldown = true;
+        elapsedTime = 0f;
+        Console.WriteLine($"CooldownDecorator: Cooldown started due to abort for {cooldownParams.CooldownTime}s");
+    }
+
+    public override void OnFinished()
+    {
+        onCooldown = true;
+        elapsedTime = 0f;
+        Console.WriteLine($"CooldownDecorator: Cooldown started on finished for {cooldownParams.CooldownTime}s");
+    }
 }

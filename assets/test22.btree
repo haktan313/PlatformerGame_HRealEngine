@@ -97,7 +97,7 @@ BehaviorTree:
               Priority: Both
               AlwaysReevaluate: true
               PlayerTagKey: Player
-              MinRange: 4
+              MinRange: 3
         Params:
           {}
       - ID: 16
@@ -200,7 +200,7 @@ BehaviorTree:
                     AlwaysReevaluate: true
                     Params:
                       PlayerTagKey: Player
-                      MinRange: 4
+                      MinRange: 3
                 Children:
                   - Name: CooldownDecorator
                     Type: Decorator

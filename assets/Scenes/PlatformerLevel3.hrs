@@ -2,14 +2,106 @@ Scene: PlatformerLevel2
 SceneSettings:
   Physic: 3D
 Entities:
-  - Entity: 3765885501755602413
+  - Entity: 16558990680516764971
     EntityNameComponent:
       Name: Platform
     TagComponent:
       Tags:
         - Ground
     TransformComponent:
-      Position: [-4.7666435, -2.3888297, 2.124526]
+      Position: [11.233357, 1.4111702, 2.1303039]
+      Rotation: [0, 0, 0]
+      Scale: [2, 1, 2]
+    MeshRendererComponent:
+      PivotOffset: [0, 0.2, 0]
+      MeshHandle: 14213266826641648093
+      Color: [1, 1, 1, 1]
+      TextureHandle: 0
+      TilingFactor: 1
+      MaterialHandleOverrides:
+        - 984707302067005557
+        - 0
+    BoxCollider3DComponent:
+      Offset: [0, 0, 0]
+      Size: [0.4, 0.2, 0.4]
+      IsTrigger: false
+  - Entity: 12689187209994685937
+    EntityNameComponent:
+      Name: Platform
+    TagComponent:
+      Tags:
+        - Ground
+    TransformComponent:
+      Position: [9.633357, 1.4111702, 2.1303039]
+      Rotation: [0, 0, 0]
+      Scale: [2, 1, 2]
+    MeshRendererComponent:
+      PivotOffset: [0, 0.2, 0]
+      MeshHandle: 14213266826641648093
+      Color: [1, 1, 1, 1]
+      TextureHandle: 0
+      TilingFactor: 1
+      MaterialHandleOverrides:
+        - 984707302067005557
+        - 0
+    BoxCollider3DComponent:
+      Offset: [0, 0, 0]
+      Size: [0.4, 0.2, 0.4]
+      IsTrigger: false
+  - Entity: 7500210816407147603
+    EntityNameComponent:
+      Name: Platform
+    TagComponent:
+      Tags:
+        - Ground
+    TransformComponent:
+      Position: [8.033357, 1.4111702, 2.1303039]
+      Rotation: [0, 0, 0]
+      Scale: [2, 1, 2]
+    MeshRendererComponent:
+      PivotOffset: [0, 0.2, 0]
+      MeshHandle: 14213266826641648093
+      Color: [1, 1, 1, 1]
+      TextureHandle: 0
+      TilingFactor: 1
+      MaterialHandleOverrides:
+        - 984707302067005557
+        - 0
+    BoxCollider3DComponent:
+      Offset: [0, 0, 0]
+      Size: [0.4, 0.2, 0.4]
+      IsTrigger: false
+  - Entity: 9042393887392261853
+    EntityNameComponent:
+      Name: Platform
+    TagComponent:
+      Tags:
+        - Ground
+    TransformComponent:
+      Position: [6.433357, 1.4111702, 2.1303039]
+      Rotation: [0, 0, 0]
+      Scale: [2, 1, 2]
+    MeshRendererComponent:
+      PivotOffset: [0, 0.2, 0]
+      MeshHandle: 14213266826641648093
+      Color: [1, 1, 1, 1]
+      TextureHandle: 0
+      TilingFactor: 1
+      MaterialHandleOverrides:
+        - 984707302067005557
+        - 0
+    BoxCollider3DComponent:
+      Offset: [0, 0, 0]
+      Size: [0.4, 0.2, 0.4]
+      IsTrigger: false
+  - Entity: 8111603835547763900
+    EntityNameComponent:
+      Name: Platform
+    TagComponent:
+      Tags:
+        - Ground
+    TransformComponent:
+      Position: [6.433357, 1.4111702, 2.1303039]
       Rotation: [0, 0, 0]
       Scale: [2, 1, 2]
     MeshRendererComponent:
@@ -48,14 +140,14 @@ Entities:
       Offset: [0, 0, 0]
       Size: [0.4, 0.2, 0.4]
       IsTrigger: false
-  - Entity: 5532840445518247156
+  - Entity: 1938317609361490119
     EntityNameComponent:
       Name: Platform
     TagComponent:
       Tags:
         - Ground
     TransformComponent:
-      Position: [-3.0666435, -2.3888297, 2.124526]
+      Position: [-6.3666434, -2.3888297, 3.7303038]
       Rotation: [0, 0, 0]
       Scale: [2, 1, 2]
     MeshRendererComponent:
@@ -71,18 +163,34 @@ Entities:
       Offset: [0, 0, 0]
       Size: [0.4, 0.2, 0.4]
       IsTrigger: false
-  - Entity: 12347734555195175531
+  - Entity: 3765885501755602413
     EntityNameComponent:
-      Name: Empty Entity
+      Name: Platform
+    TagComponent:
+      Tags:
+        - Ground
     TransformComponent:
-      Position: [0, 0, 0]
+      Position: [-4.7666435, -2.3888297, 2.124526]
       Rotation: [0, 0, 0]
-      Scale: [1, 1, 1]
+      Scale: [2, 1, 2]
+    MeshRendererComponent:
+      PivotOffset: [0, 0.2, 0]
+      MeshHandle: 14213266826641648093
+      Color: [1, 1, 1, 1]
+      TextureHandle: 0
+      TilingFactor: 1
+      MaterialHandleOverrides:
+        - 984707302067005557
+        - 0
+    BoxCollider3DComponent:
+      Offset: [0, 0, 0]
+      Size: [0.4, 0.2, 0.4]
+      IsTrigger: false
   - Entity: 430046736409495916
     EntityNameComponent:
       Name: Camera
     TransformComponent:
-      Position: [0, 4.1142273, 15.104804]
+      Position: [5.4223456, 6.500429, 24.010235]
       Rotation: [-0.26179948, 0, 0]
       Scale: [1, 1, 1]
     CameraComponent:
@@ -132,7 +240,7 @@ Entities:
       Tags:
         - Player
     TransformComponent:
-      Position: [-6.0000005, -1.2, 2]
+      Position: [-6.0000005, -1.2, 1.9806358]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
     MeshRendererComponent:
@@ -155,18 +263,33 @@ Entities:
     ScriptComponent:
       ClassName: HRealEngine.Player
       ScriptFields:
+        - Name: bulletObjectName
+          Type: String
+          Data: BulletPrefab
+        - Name: currentSceneName
+          Type: String
+          Data: Scenes/PlatformerLevel2.hrs
+        - Name: finishTag
+          Type: String
+          Data: Finish
         - Name: groundTag
           Type: String
           Data: Ground
         - Name: jumpForce
           Type: Float
           Data: 6
+        - Name: sceneLoadDelay
+          Type: Float
+          Data: 999999
         - Name: scenePathToLoad
           Type: String
           Data: Scenes/EndMenu.hrs
         - Name: speed
           Type: Float
           Data: 2
+        - Name: timerTextName
+          Type: String
+          Data: Timer
     Rigidbody3DComponent:
       BodyType: Dynamic
       LockPositionX: false
@@ -183,3 +306,559 @@ Entities:
       Offset: [0, 0, 0]
       Size: [0.4, 0.75, 0.4]
       IsTrigger: false
+  - Entity: 17683856716408885064
+    EntityNameComponent:
+      Name: Timer
+    TransformComponent:
+      Position: [0, 0, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    TextComponent:
+      TextString: ""
+      Color: [1, 1, 1, 1]
+      Kerning: 0
+      LineSpacing: 0
+  - Entity: 15992198133516111665
+    EntityNameComponent:
+      Name: Finish
+    TransformComponent:
+      Position: [11.949935, 2.8000002, 2]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    TextComponent:
+      TextString: "Finish\n"
+      Color: [1, 1, 1, 1]
+      Kerning: 0
+      LineSpacing: 0
+    BoxCollider3DComponent:
+      Offset: [0, 0, 0]
+      Size: [2, 2, 1]
+      IsTrigger: false
+  - Entity: 9470043925796350823
+    EntityNameComponent:
+      Name: DeadZone
+    TransformComponent:
+      Position: [7.9353437, -7.5253196, 4.3237915]
+      Rotation: [0, 0, 0]
+      Scale: [51.022896, 1, 18.627892]
+    ScriptComponent:
+      ClassName: HRealEngine.DeadZone
+      ScriptFields:
+        - Name: currentSceneName
+          Type: String
+          Data: Scenes/PlatformerLevel3.hrs
+        - Name: interactableBoxesTag
+          Type: String
+          Data: InteractableBoxes
+        - Name: playerTag
+          Type: String
+          Data: Player
+    BoxCollider3DComponent:
+      Offset: [0, 0, 0]
+      Size: [0.5, 0.5, 0.5]
+      IsTrigger: true
+  - Entity: 8145349305470892577
+    EntityNameComponent:
+      Name: Platform
+    TagComponent:
+      Tags:
+        - Ground
+    TransformComponent:
+      Position: [6.433357, -2.3888297, 2.1303039]
+      Rotation: [0, 0, 0]
+      Scale: [2, 1, 2]
+    MeshRendererComponent:
+      PivotOffset: [0, 0.2, 0]
+      MeshHandle: 14213266826641648093
+      Color: [1, 1, 1, 1]
+      TextureHandle: 0
+      TilingFactor: 1
+      MaterialHandleOverrides:
+        - 984707302067005557
+        - 0
+    BoxCollider3DComponent:
+      Offset: [0, 0, 0]
+      Size: [0.4, 0.2, 0.4]
+      IsTrigger: false
+  - Entity: 11181747018394428866
+    EntityNameComponent:
+      Name: Platform
+    TagComponent:
+      Tags:
+        - Ground
+    TransformComponent:
+      Position: [-3.1666434, -2.3888297, 3.7303038]
+      Rotation: [0, 0, 0]
+      Scale: [2, 1, 2]
+    MeshRendererComponent:
+      PivotOffset: [0, 0.2, 0]
+      MeshHandle: 14213266826641648093
+      Color: [1, 1, 1, 1]
+      TextureHandle: 0
+      TilingFactor: 1
+      MaterialHandleOverrides:
+        - 984707302067005557
+        - 0
+    ScriptComponent:
+      ClassName: HRealEngine.PlatformDestroyer
+      ScriptFields:
+        - Name: platformName
+          Type: String
+          Data: PlatformDestroyable
+    BoxCollider3DComponent:
+      Offset: [0, 0, 0]
+      Size: [0.4, 0.2, 0.4]
+      IsTrigger: false
+  - Entity: 9282702783100247814
+    EntityNameComponent:
+      Name: Platform
+    TagComponent:
+      Tags:
+        - Ground
+    TransformComponent:
+      Position: [-4.7666435, -2.3888297, 3.7303038]
+      Rotation: [0, 0, 0]
+      Scale: [2, 1, 2]
+    MeshRendererComponent:
+      PivotOffset: [0, 0.2, 0]
+      MeshHandle: 14213266826641648093
+      Color: [1, 1, 1, 1]
+      TextureHandle: 0
+      TilingFactor: 1
+      MaterialHandleOverrides:
+        - 984707302067005557
+        - 0
+    BoxCollider3DComponent:
+      Offset: [0, 0, 0]
+      Size: [0.4, 0.2, 0.4]
+      IsTrigger: false
+  - Entity: 8142881651368137557
+    EntityNameComponent:
+      Name: Platform
+    TagComponent:
+      Tags:
+        - Ground
+    TransformComponent:
+      Position: [-3.1666434, -2.3888297, 2.1303039]
+      Rotation: [0, 0, 0]
+      Scale: [2, 1, 2]
+    MeshRendererComponent:
+      PivotOffset: [0, 0.2, 0]
+      MeshHandle: 14213266826641648093
+      Color: [1, 1, 1, 1]
+      TextureHandle: 0
+      TilingFactor: 1
+      MaterialHandleOverrides:
+        - 984707302067005557
+        - 0
+    BoxCollider3DComponent:
+      Offset: [0, 0, 0]
+      Size: [0.4, 0.2, 0.4]
+      IsTrigger: false
+  - Entity: 1466910935778520580
+    EntityNameComponent:
+      Name: Platform
+    TagComponent:
+      Tags:
+        - Ground
+    TransformComponent:
+      Position: [-1.5666434, -2.3888297, 2.1303039]
+      Rotation: [0, 0, 0]
+      Scale: [2, 1, 2]
+    MeshRendererComponent:
+      PivotOffset: [0, 0.2, 0]
+      MeshHandle: 14213266826641648093
+      Color: [1, 1, 1, 1]
+      TextureHandle: 0
+      TilingFactor: 1
+      MaterialHandleOverrides:
+        - 984707302067005557
+        - 0
+    BoxCollider3DComponent:
+      Offset: [0, 0, 0]
+      Size: [0.4, 0.2, 0.4]
+      IsTrigger: false
+  - Entity: 11638883358594586810
+    EntityNameComponent:
+      Name: PlatformMoveable
+    TagComponent:
+      Tags:
+        - Ground
+        - MoveablePlatform
+    TransformComponent:
+      Position: [0.033356547, -2.4888296, 22.88824]
+      Rotation: [0, 0, 0]
+      Scale: [2, 1, 2]
+    MeshRendererComponent:
+      PivotOffset: [0, 0.2, 0]
+      MeshHandle: 14213266826641648093
+      Color: [1, 1, 1, 1]
+      TextureHandle: 0
+      TilingFactor: 1
+      MaterialHandleOverrides:
+        - 984707302067005557
+        - 0
+    ScriptComponent:
+      ClassName: HRealEngine.MoveablePlatform
+      ScriptFields:
+        - Name: EndPosition
+          Type: Vector3
+          Data: [0.23, 1.41, 2.13]
+        - Name: Speed
+          Type: Float
+          Data: 2
+        - Name: bCanMove
+          Type: Bool
+          Data: false
+    Rigidbody3DComponent:
+      BodyType: Kinematic
+      LockPositionX: false
+      LockPositionY: false
+      LockPositionZ: false
+      LockRotationX: false
+      LockRotationY: false
+      LockRotationZ: false
+      FixedRotation: false
+      Friction: 0.05
+      Restitution: 0
+      Convex Radius: 0.02
+    BoxCollider3DComponent:
+      Offset: [0, 0, 0]
+      Size: [0.4, 0.2, 0.4]
+      IsTrigger: false
+  - Entity: 4324572084568516068
+    EntityNameComponent:
+      Name: Enemy
+    TransformComponent:
+      Position: [4.984395e-08, -1.651461, 2.1491911]
+      Rotation: [-3.1415923, 0, -3.1415923]
+      Scale: [1, 1, 1]
+    MeshRendererComponent:
+      PivotOffset: [0, 0, 0]
+      MeshHandle: 0
+      Color: [1, 0, 0, 1]
+      TextureHandle: 0
+      TilingFactor: 1
+      MaterialHandleOverrides:
+        []
+    BehaviorTreeComponent:
+      BehaviorTreeHandle: 7840225679639347890
+    AIControllerComponent:
+      UpdateInterval: 0.5
+      SightEnabled: true
+      HearingEnabled: false
+      SightConfig:
+        SightRadius: 10
+        FieldOfView: 360
+        ForgetDuration: 5
+        DetectableTypes:
+          - 0
+      HearingConfig:
+        HearingRadius: 10
+        ForgetDuration: 5
+        DetectableTypes:
+          []
+    ScriptComponent:
+      ClassName: HRealEngine.Enemy
+    Rigidbody3DComponent:
+      BodyType: Dynamic
+      LockPositionX: false
+      LockPositionY: false
+      LockPositionZ: false
+      LockRotationX: true
+      LockRotationY: true
+      LockRotationZ: true
+      FixedRotation: false
+      Friction: 0.05
+      Restitution: 0
+      Convex Radius: 0.02
+    BoxCollider3DComponent:
+      Offset: [0, 0, 0]
+      Size: [0.5, 0.5, 0.5]
+      IsTrigger: false
+  - Entity: 12915798724798269786
+    EntityNameComponent:
+      Name: Platform
+    TagComponent:
+      Tags:
+        - Ground
+    TransformComponent:
+      Position: [12.833358, 1.4111702, 2.1303039]
+      Rotation: [0, 0, 0]
+      Scale: [2, 1, 2]
+    MeshRendererComponent:
+      PivotOffset: [0, 0.2, 0]
+      MeshHandle: 14213266826641648093
+      Color: [1, 1, 1, 1]
+      TextureHandle: 0
+      TilingFactor: 1
+      MaterialHandleOverrides:
+        - 984707302067005557
+        - 0
+    BoxCollider3DComponent:
+      Offset: [0, 0, 0]
+      Size: [0.4, 0.2, 0.4]
+      IsTrigger: false
+  - Entity: 17888077851341380913
+    EntityNameComponent:
+      Name: Platform
+    TagComponent:
+      Tags:
+        - Ground
+    TransformComponent:
+      Position: [3.2333567, -2.3888297, 2.1303039]
+      Rotation: [0, 0, 0]
+      Scale: [2, 1, 2]
+    MeshRendererComponent:
+      PivotOffset: [0, 0.2, 0]
+      MeshHandle: 14213266826641648093
+      Color: [1, 1, 1, 1]
+      TextureHandle: 0
+      TilingFactor: 1
+      MaterialHandleOverrides:
+        - 984707302067005557
+        - 0
+    BoxCollider3DComponent:
+      Offset: [0, 0, 0]
+      Size: [0.4, 0.2, 0.4]
+      IsTrigger: false
+  - Entity: 707434304660097663
+    EntityNameComponent:
+      Name: Platform
+    TagComponent:
+      Tags:
+        - Ground
+    TransformComponent:
+      Position: [4.833357, -2.3888297, 6.9303036]
+      Rotation: [0, 0, 0]
+      Scale: [2, 1, 2]
+    MeshRendererComponent:
+      PivotOffset: [0, 0.2, 0]
+      MeshHandle: 14213266826641648093
+      Color: [1, 1, 1, 1]
+      TextureHandle: 0
+      TilingFactor: 1
+      MaterialHandleOverrides:
+        - 984707302067005557
+        - 0
+    ScriptComponent:
+      ClassName: HRealEngine.Button
+      ScriptFields:
+        - Name: bActivate
+          Type: Bool
+          Data: true
+        - Name: platformName
+          Type: String
+          Data: PlatformMoveable
+        - Name: positionForPlatform
+          Type: Vector3
+          Data: [0.03, -2.39, 2.13]
+    BoxCollider3DComponent:
+      Offset: [0, 0, 0]
+      Size: [0.4, 0.2, 0.4]
+      IsTrigger: false
+  - Entity: 12818770897779260143
+    EntityNameComponent:
+      Name: Platform
+    TagComponent:
+      Tags:
+        - Ground
+    TransformComponent:
+      Position: [4.833357, -2.3888297, 2.1303039]
+      Rotation: [0, 0, 0]
+      Scale: [2, 1, 2]
+    MeshRendererComponent:
+      PivotOffset: [0, 0.2, 0]
+      MeshHandle: 14213266826641648093
+      Color: [1, 1, 1, 1]
+      TextureHandle: 0
+      TilingFactor: 1
+      MaterialHandleOverrides:
+        - 984707302067005557
+        - 0
+    BoxCollider3DComponent:
+      Offset: [0, 0, 0]
+      Size: [0.4, 0.2, 0.4]
+      IsTrigger: false
+  - Entity: 4583138845960430509
+    EntityNameComponent:
+      Name: Platform
+    TagComponent:
+      Tags:
+        - Ground
+    TransformComponent:
+      Position: [4.833357, -2.3888297, 3.7303038]
+      Rotation: [0, 0, 0]
+      Scale: [2, 1, 2]
+    MeshRendererComponent:
+      PivotOffset: [0, 0.2, 0]
+      MeshHandle: 14213266826641648093
+      Color: [1, 1, 1, 1]
+      TextureHandle: 0
+      TilingFactor: 1
+      MaterialHandleOverrides:
+        - 984707302067005557
+        - 0
+    BoxCollider3DComponent:
+      Offset: [0, 0, 0]
+      Size: [0.4, 0.2, 0.4]
+      IsTrigger: false
+  - Entity: 10901372123424976111
+    EntityNameComponent:
+      Name: Platform
+    TagComponent:
+      Tags:
+        - Ground
+    TransformComponent:
+      Position: [4.833357, -2.3888297, 5.3303037]
+      Rotation: [0, 0, 0]
+      Scale: [2, 1, 2]
+    MeshRendererComponent:
+      PivotOffset: [0, 0.2, 0]
+      MeshHandle: 14213266826641648093
+      Color: [1, 1, 1, 1]
+      TextureHandle: 0
+      TilingFactor: 1
+      MaterialHandleOverrides:
+        - 984707302067005557
+        - 0
+    BoxCollider3DComponent:
+      Offset: [0, 0, 0]
+      Size: [0.4, 0.2, 0.4]
+      IsTrigger: false
+  - Entity: 5329866774693033599
+    EntityNameComponent:
+      Name: Key
+    TransformComponent:
+      Position: [4, 0, 8.900001]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+  - Entity: 4315571823010672876
+    EntityNameComponent:
+      Name: Platform
+    TagComponent:
+      Tags:
+        - Ground
+    TransformComponent:
+      Position: [1.6333567, -2.3888297, 2.1303039]
+      Rotation: [0, 0, 0]
+      Scale: [2, 1, 2]
+    MeshRendererComponent:
+      PivotOffset: [0, 0.2, 0]
+      MeshHandle: 14213266826641648093
+      Color: [1, 1, 1, 1]
+      TextureHandle: 0
+      TilingFactor: 1
+      MaterialHandleOverrides:
+        - 984707302067005557
+        - 0
+    BoxCollider3DComponent:
+      Offset: [0, 0, 0]
+      Size: [0.4, 0.2, 0.4]
+      IsTrigger: false
+  - Entity: 17478828077755868515
+    EntityNameComponent:
+      Name: PlatformDestroyable
+    TagComponent:
+      Tags:
+        - Ground
+        - MoveablePlatform
+    TransformComponent:
+      Position: [0.033356667, -2.3980858, 2.1303039]
+      Rotation: [0, 0.00059802, 0]
+      Scale: [2, 1, 2]
+    MeshRendererComponent:
+      PivotOffset: [0, 0.2, 0]
+      MeshHandle: 14213266826641648093
+      Color: [1, 1, 1, 1]
+      TextureHandle: 0
+      TilingFactor: 1
+      MaterialHandleOverrides:
+        - 984707302067005557
+        - 0
+    ScriptComponent:
+      ClassName: HRealEngine.MoveablePlatform
+      ScriptFields:
+        - Name: EndPosition
+          Type: Vector3
+          Data: [0.23, 1.41, 2.13]
+        - Name: Speed
+          Type: Float
+          Data: 2
+        - Name: bCanMove
+          Type: Bool
+          Data: true
+    Rigidbody3DComponent:
+      BodyType: Kinematic
+      LockPositionX: false
+      LockPositionY: false
+      LockPositionZ: false
+      LockRotationX: false
+      LockRotationY: false
+      LockRotationZ: false
+      FixedRotation: false
+      Friction: 0.05
+      Restitution: 0
+      Convex Radius: 0.02
+    BoxCollider3DComponent:
+      Offset: [0, 0, 0]
+      Size: [0.4, 0.2, 0.4]
+      IsTrigger: false
+  - Entity: 8660564077434289757
+    EntityNameComponent:
+      Name: Platform
+    TagComponent:
+      Tags:
+        - Ground
+    TransformComponent:
+      Position: [3.2333567, 1.4111702, 2.1303039]
+      Rotation: [0, 0, 0]
+      Scale: [2, 1, 2]
+    MeshRendererComponent:
+      PivotOffset: [0, 0.2, 0]
+      MeshHandle: 14213266826641648093
+      Color: [1, 1, 1, 1]
+      TextureHandle: 0
+      TilingFactor: 1
+      MaterialHandleOverrides:
+        - 984707302067005557
+        - 0
+    BoxCollider3DComponent:
+      Offset: [0, 0, 0]
+      Size: [0.4, 0.2, 0.4]
+      IsTrigger: false
+  - Entity: 12401279972975525472
+    EntityNameComponent:
+      Name: Platform
+    TagComponent:
+      Tags:
+        - Ground
+    TransformComponent:
+      Position: [4.833357, 1.4111702, 2.1303039]
+      Rotation: [0, 0, 0]
+      Scale: [2, 1, 2]
+    MeshRendererComponent:
+      PivotOffset: [0, 0.2, 0]
+      MeshHandle: 14213266826641648093
+      Color: [1, 1, 1, 1]
+      TextureHandle: 0
+      TilingFactor: 1
+      MaterialHandleOverrides:
+        - 984707302067005557
+        - 0
+    BoxCollider3DComponent:
+      Offset: [0, 0, 0]
+      Size: [0.4, 0.2, 0.4]
+      IsTrigger: false
+  - Entity: 16052117171082093935
+    EntityNameComponent:
+      Name: O
+    TransformComponent:
+      Position: [4.4726057, -2.0133085, 7.4167337]
+      Rotation: [-1.5707964, 0, 0]
+      Scale: [2, 1.9999151, 0.99995756]
+    TextComponent:
+      TextString: "O\n"
+      Color: [1, 1, 1, 1]
+      Kerning: 0
+      LineSpacing: 0

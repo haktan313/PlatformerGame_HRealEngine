@@ -13,6 +13,8 @@ namespace HRealEngine
         private Vector3 originalPlatformPosition = Vector3.Zero;
         private List<ulong> overlapEntitiesIDs = new List<ulong>();
         
+        public bool bActivate = false;
+        
         void BeginPlay()
         {
             Console.WriteLine("Button created with entity ID: " + EntityID);
@@ -44,6 +46,15 @@ namespace HRealEngine
                     Console.WriteLine("Platform moved to: " + positionForPlatform);
                     bIsActivated = true;
                     overlapEntitiesIDs.Add(otherID);
+                    if(bActivate)
+                    {
+                        MoveablePlatform moveablePlatform = platform.As<MoveablePlatform>();
+                        if (moveablePlatform != null)
+                        {
+                            moveablePlatform.SetCanMove(true);
+                            Console.WriteLine("Platform can now move!");
+                        }
+                    }
                 }
             }else if (bIsActivated && !overlapEntitiesIDs.Contains(otherID))
             {
@@ -52,6 +63,8 @@ namespace HRealEngine
         }
         void OnCollisionExit(ulong otherID)
         {
+            if(!bIsActivated || overlapEntitiesIDs.Count == 0)
+                return;
             if (bIsActivated && overlapEntitiesIDs.Contains(otherID))
             {
                 overlapEntitiesIDs.Remove(otherID);

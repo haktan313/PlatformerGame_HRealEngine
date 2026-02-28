@@ -8,7 +8,7 @@ namespace HRealEngine
         private Vector3 StartPosition;
         public Vector3 EndPosition;
         public float Speed = 1.0f;
-        public bool bCanMove = true;
+        public bool bCanMove = false;
         
         private Vector3 platformVelocity = Vector3.Zero;
         void BeginPlay()
