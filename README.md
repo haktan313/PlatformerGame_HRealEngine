@@ -63,7 +63,7 @@ git submodule update --init
 
 Generate project files by running **`HRealEngine/Scripts/Win-GenProjects.bat`**.
 
-Open the generated `.sln` in your preferred IDE and build the solution in **Release** or **Debug** configuration.
+Open the generated `.sln` in your preferred IDE and build the solution.
 
 #### Step 2: Clone the Game Project
 
@@ -72,6 +72,8 @@ git clone https://github.com/haktan313/PlatformerGame_HRealEngine
 ```
 
 Place it anywhere on your machine (e.g., Desktop).
+
+> **⚠️ Important:** The project folder name and the `.hrpj` file name **must match**.
 
 #### Step 3: Build the C# Scripts
 
@@ -82,7 +84,8 @@ Place it anywhere on your machine (e.g., Desktop).
 
 #### Step 4: Open the Project in the Editor
 
-1. Launch **HRealEngine Editor**.
+1. Launch the **HRealEngine Editor**. If this is your first time, make sure you have already built the engine in Step 1, the editor executable is located at `HRealEngine/bin/<config>/HRealEngine Editor/`. You can also run it from your IDE by setting **HRealEngine Editor** as the startup project and pressing Run.
+
 2. In the **Project Browser**, click **"Open Project"**.
 
    **Open Project**<img width="2552" height="1393" alt="OpenProjectScene" src="https://github.com/user-attachments/assets/8efb815d-e762-4efe-8a61-fb83d3809165" />

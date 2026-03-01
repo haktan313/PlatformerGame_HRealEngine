@@ -1,6 +1,6 @@
 Project:
-  Name: PlatformerGame
+  Name: PlatformerGame_HRealEngine
   StartScene: 771012059488381640
   AssetDirectory: assets
   AssetRegistryPath: AssetRegistry.yaml
-  ScriptModulePath: Scripts/Binaries/PlatformerGame.dll
+  ScriptModulePath: Scripts/Binaries/PlatformerGame_HRealEngine.dll
