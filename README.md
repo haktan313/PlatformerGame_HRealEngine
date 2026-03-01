@@ -197,7 +197,7 @@ After completing all 3 levels, the end screen displays:
 - **Restart** button — resets timer and returns to Level1
 - **Exit** button — closes the game
 
-![End Screen](<img width="2551" height="1390" alt="EndScene" src="https://github.com/user-attachments/assets/82bbaab1-2a34-4229-b9a0-5314d31bb822" />)
+**End Screen**<img width="2551" height="1390" alt="EndScene" src="https://github.com/user-attachments/assets/82bbaab1-2a34-4229-b9a0-5314d31bb822" />
 
 ---
 
