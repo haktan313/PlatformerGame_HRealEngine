@@ -280,20 +280,20 @@ PlatformerGame_HRealEngine/
 
 | Menu | Level 1 |
 |------|---------|
-| ![Menu](Menu.png) | ![Level 1](Level1.png) |
+| **Menu**<img width="2550" height="1389" alt="Menu" src="https://github.com/user-attachments/assets/e63be90a-8237-4bf4-92d9-c7f457ca1047" /> | **Level 1**<img width="2552" height="1390" alt="Level1" src="https://github.com/user-attachments/assets/6185a108-249c-45fa-9633-8512a746c0af" /> |
 
 | Level 2 | Level 3 |
 |---------|---------|
-| ![Level 2](Level2.png) | ![Level 3](Level3.png) |
+| ![Level 2**<img width="2549" height="1388" alt="Level2" src="https://github.com/user-attachments/assets/5a263d39-ab57-46da-b425-93379febe52c" /> | **Level 3**<img width="2543" height="1393" alt="Level3" src="https://github.com/user-attachments/assets/90f3d020-6cba-4fb9-b98c-55a07b0cbef5" /> |
 
 | Enemy Perception Blocked | End Screen |
 |--------------------------|------------|
-| ![Perception](Level3_Block_enemys_percaption.png) | ![End](EndScene.png) |
+| **Perception**<img width="2549" height="1390" alt="Level3 Block enemys percaption" src="https://github.com/user-attachments/assets/07259fa9-ded7-4602-b9fc-cf329dad0144" /> | **End**<img width="2551" height="1390" alt="EndScene" src="https://github.com/user-attachments/assets/82bbaab1-2a34-4229-b9a0-5314d31bb822" /> |
 
 | Editor - Open Project | Editor - Select Project |
 |-----------------------|------------------------|
-| ![Open](OpenProjectScene.png) | ![Select](SelectProjectHRPJ.png) |
+| **Open Project**<img width="2552" height="1393" alt="OpenProjectScene" src="https://github.com/user-attachments/assets/8efb815d-e762-4efe-8a61-fb83d3809165" /> | **Select HRPJ**<img width="1618" height="953" alt="SelectProjectHRPJ" src="https://github.com/user-attachments/assets/fe3a185a-e43c-4d75-ace3-71395dd3334a" /> |
 
 | Editor - Build Button | Editor - Build Output |
 |-----------------------|-----------------------|
-| ![Build](BuildButton.png) | ![Output](BuildFile.png) |
+| **Editor View**<img width="2548" height="1399" alt="BuildButton" src="https://github.com/user-attachments/assets/91fa46ca-3ed1-40a1-8ac9-b57e5d5d54b6" /> | **Build Output**<img width="2546" height="1397" alt="BuildFile" src="https://github.com/user-attachments/assets/a02032c4-47c9-4dcd-bc06-787aa850db1f" /> |
