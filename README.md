@@ -85,26 +85,26 @@ Place it anywhere on your machine (e.g., Desktop).
 1. Launch **HRealEngine Editor**.
 2. In the **Project Browser**, click **"Open Project"**.
 
-   ![Open Project](OpenProjectScene.png)
+   **Open Project**<img width="2552" height="1393" alt="OpenProjectScene" src="https://github.com/user-attachments/assets/8efb815d-e762-4efe-8a61-fb83d3809165" />
 
 3. Navigate to the `PlatformerGame_HRealEngine` folder and select **`PlatformerGame.hrpj`**.
 
-   ![Select HRPJ](SelectProjectHRPJ.png)
+   **Select HRPJ**<img width="1618" height="953" alt="SelectProjectHRPJ" src="https://github.com/user-attachments/assets/fe3a185a-e43c-4d75-ace3-71395dd3334a" />
 
 4. The editor will load the Menu scene by default.
 
-   ![Editor View](BuildButton.png)
+   **Editor View**<img width="2548" height="1399" alt="BuildButton" src="https://github.com/user-attachments/assets/91fa46ca-3ed1-40a1-8ac9-b57e5d5d54b6" />
 
 #### Step 5: Build the Game
 
 1. In the editor, click **Build → Build Project** (or use the "Build Project" button in the top-left).
 2. Select a destination folder and name the build.
 
-   ![Build Directory](BuildSelectedDirectory.png)
+   **Build Directory**<img width="2537" height="1386" alt="BuildSelectedDirectory" src="https://github.com/user-attachments/assets/256593a4-8a46-4d86-b31e-5b80d4b2e528" />
 
 3. The engine will copy all required assets, scripts, mono runtime, and create the executable.
 
-   ![Build Output](BuildFile.png)
+   **Build Output**<img width="2546" height="1397" alt="BuildFile" src="https://github.com/user-attachments/assets/a02032c4-47c9-4dcd-bc06-787aa850db1f" />
 
 4. Navigate to the build folder and run **`PlatformerGame.exe`**.
 
@@ -163,7 +163,7 @@ The game contains **6 scenes** in total:
 - **Timer** displayed on screen tracking elapsed time
 - Reach the **"Finish"** text to advance to Level 2
 
-![Level 1](Level1.png)
+**Level 1**<img width="2552" height="1390" alt="Level1" src="https://github.com/user-attachments/assets/6185a108-249c-45fa-9633-8512a746c0af" />
 
 ### Level 2 – Vertical Platforming & Enemy
 
@@ -173,7 +173,7 @@ The game contains **6 scenes** in total:
 - Use the restored moveable platform to reach the **"Finish"**
 - Dead zones below for fall penalties
 
-![Level 2](Level2.png)
+**Level 2**<img width="2549" height="1388" alt="Level2" src="https://github.com/user-attachments/assets/5a263d39-ab57-46da-b425-93379febe52c" />
 
 ### Level 3 – AI Enemy & Advanced Mechanics
 
@@ -186,8 +186,9 @@ The game contains **6 scenes** in total:
 - **Dead zones** reset box positions and kill the player/enemies
 - Reach **"Finish"** to complete the game
 
-![Level 3](Level3.png)
-![Level 3 - Blocking Enemy Perception](Level3_Block_enemys_percaption.png)
+**Level 3**<img width="2543" height="1393" alt="Level3" src="https://github.com/user-attachments/assets/90f3d020-6cba-4fb9-b98c-55a07b0cbef5" />
+
+**Level 3 - Blocking Enemy Perception**<img width="2549" height="1390" alt="Level3 Block enemys percaption" src="https://github.com/user-attachments/assets/07259fa9-ded7-4602-b9fc-cf329dad0144" />
 
 ### End Screen
 
@@ -196,7 +197,7 @@ After completing all 3 levels, the end screen displays:
 - **Restart** button — resets timer and returns to Level1
 - **Exit** button — closes the game
 
-![End Screen](EndScene.png)
+![End Screen](<img width="2551" height="1390" alt="EndScene" src="https://github.com/user-attachments/assets/82bbaab1-2a34-4229-b9a0-5314d31bb822" />)
 
 ---
 
